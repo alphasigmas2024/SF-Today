@@ -55,7 +55,42 @@ function launchConfetti() {
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const today = new Date();
-const dateString = `${days[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+
+// --- SF-TIME DAY BOUNDARIES ---
+// Every "what day is it" calculation on this site (the daily game, the daily
+// wheel, daily trivia, which weekday tab is active by default) is anchored to
+// San Francisco's actual calendar date (America/Los_Angeles), not the
+// visitor's own timezone and not UTC. Without this, someone in New York sees
+// "tomorrow" hours before SF does, and daily resets land at a random UTC
+// offset instead of SF's real midnight.
+function sfDateStamp(date = new Date()) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric', month: '2-digit', day: '2-digit'
+  }).format(date); // "YYYY-MM-DD"
+}
+
+function sfYesterdayStamp() {
+  const [y, m, d] = sfDateStamp().split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() - 1);
+  return dt.toISOString().slice(0, 10);
+}
+
+function sfDayOfYear(stamp = sfDateStamp()) {
+  const [y, m, d] = stamp.split('-').map(Number);
+  const current = Date.UTC(y, m - 1, d);
+  const yearStart = Date.UTC(y, 0, 0);
+  return Math.floor((current - yearStart) / 86400000);
+}
+
+function sfDayParts(stamp = sfDateStamp()) {
+  const [y, m, d] = stamp.split('-').map(Number);
+  return { year: y, month: m, day: d, weekday: new Date(Date.UTC(y, m - 1, d)).getUTCDay() };
+}
+
+const sfTodayParts = sfDayParts();
+const dateString = `${days[sfTodayParts.weekday]}, ${months[sfTodayParts.month - 1]} ${sfTodayParts.day}, ${sfTodayParts.year}`;
 
 function getSFGreeting() {
   const sfHour = parseInt(
@@ -301,20 +336,15 @@ const localFavorites = [
   { title: "Bird & Beckett Books and Records", desc: "A Glen Park indie bookstore that doubles as a beloved neighborhood jazz venue on weekends.", address: "653 Chenery St, San Francisco, CA", hours: "Check current hours", tag: "local" }
 ];
 
-function getWeekNumber(date) {
-  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+function getWeekNumber(sfStamp) {
+  const [y, m, dNum] = sfStamp.split('-').map(Number);
+  const d = new Date(Date.UTC(y, m - 1, dNum));
   d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
   const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
   return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
 }
 
-function getDayOfYear(date) {
-  const start = new Date(date.getFullYear(), 0, 0);
-  const diff = date - start;
-  return Math.floor(diff / 86400000);
-}
-
-const weekNum = getWeekNumber(today);
+const weekNum = getWeekNumber(sfDateStamp());
 const favoriteOfTheWeek = localFavorites[weekNum % localFavorites.length];
 document.getElementById('local-favorite-content').innerHTML = buildVenueCard(favoriteOfTheWeek);
 
@@ -432,7 +462,7 @@ closeBtn.addEventListener('click', function() {
 // --- WEEKLY EVENTS FEED / DAY TABS ---
 const dayTabs = document.querySelectorAll('.day-tab');
 const weeklyEventsContent = document.getElementById('weekly-events-content');
-const todayIndex = today.getDay();
+const todayIndex = sfDayParts().weekday;
 
 function renderDay(dayIndex) {
   const dayEvents = weeklyEvents[dayIndex];
@@ -733,7 +763,7 @@ const spotPuzzles = [
   }
 ];
 
-const spotPuzzle = spotPuzzles[getDayOfYear(today) % spotPuzzles.length];
+const spotPuzzle = spotPuzzles[sfDayOfYear() % spotPuzzles.length];
 
 let spotClueIndex = 0;
 let spotGameOver = false;
@@ -752,13 +782,11 @@ const LAST_WIN_KEY = 'sftoday-spot-last-win';
 const LAST_PLAYED_KEY = 'sftoday-spot-last-played';
 
 function todayStamp() {
-  return today.toISOString().slice(0, 10); // YYYY-MM-DD
+  return sfDateStamp(); // "YYYY-MM-DD" in San Francisco's actual calendar day
 }
 
 function yesterdayStamp() {
-  const y = new Date(today);
-  y.setDate(y.getDate() - 1);
-  return y.toISOString().slice(0, 10);
+  return sfYesterdayStamp();
 }
 
 function getStreak() {
@@ -1158,8 +1186,8 @@ const triviaFacts = [
 ];
 
 const triviaContent = document.getElementById('trivia-content');
-if (triviaContent && typeof getDayOfYear === 'function') {
-  const fact = triviaFacts[getDayOfYear(today) % triviaFacts.length];
+if (triviaContent) {
+  const fact = triviaFacts[sfDayOfYear() % triviaFacts.length];
   triviaContent.innerHTML = `<p>💡 ${fact}</p>`;
 }
 
@@ -1628,12 +1656,6 @@ function buildSearchIndex() {
     });
   });
 
-  document.querySelectorAll('#slang-section .glossary-item').forEach((el) => {
-    const term = el.querySelector('summary')?.textContent || '';
-    const desc = el.querySelector('p')?.textContent || '';
-    index.push({ title: term, meta: 'SF Slang', desc, type: 'detail', element: el });
-  });
-
   document.querySelectorAll('#faq-section .glossary-item').forEach((el) => {
     const question = el.querySelector('summary')?.textContent || '';
     const desc = el.querySelector('p')?.textContent || '';
@@ -1760,7 +1782,7 @@ function renderPackingList() {
     packingContent.innerHTML = `<p class="no-events-message">Loading recommendations...</p>`;
     return;
   }
-  const list = buildPackingList(currentWeatherCode, today.getMonth() + 1);
+  const list = buildPackingList(currentWeatherCode, sfDayParts().month);
   packingContent.innerHTML = `<ul class="clue-list">${list.map((i) => `<li>${i}</li>`).join('')}</ul>`;
 }
 
@@ -1805,7 +1827,7 @@ const WHEEL_COLORS = ['#10243E', '#C1440E', '#3B6EA5', '#F2A65A'];
 const WHEEL_SPUN_KEY = 'sftoday-wheel-last-spun';
 
 function wheelTodayStamp() {
-  return today.toISOString().slice(0, 10);
+  return sfDateStamp(); // San Francisco's actual calendar day — resets at real SF midnight
 }
 
 function hasSpunWheelToday() {
@@ -1873,11 +1895,11 @@ function buildWheelSVG() {
 }
 
 function getWheelWinningIndex() {
-  return getDayOfYear(today) % WHEEL_SEGMENTS.length;
+  return sfDayOfYear() % WHEEL_SEGMENTS.length;
 }
 
 function pickWheelItem(segmentKey) {
-  const dayIndex = getDayOfYear(today);
+  const dayIndex = sfDayOfYear();
   let list;
   switch (segmentKey) {
     case 'eat': list = evergreenCategories.dinner; break;
@@ -1904,7 +1926,7 @@ function renderWheelResult(segment) {
   let shareText;
 
   if (segment.key === 'trivia' && typeof triviaFacts !== 'undefined') {
-    const fact = triviaFacts[getDayOfYear(today) % triviaFacts.length];
+    const fact = triviaFacts[sfDayOfYear() % triviaFacts.length];
     shareText = `Today's SF Today wheel landed on Trivia: ${fact}`;
     resultEl.innerHTML = `
       <p class="wheel-landed-label">${segment.emoji} Landed on: <strong>${segment.label}</strong></p>
