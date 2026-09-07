@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - SF Today</title>
+  <meta name="description" content="Send feedback, report a bug, or suggest something for SF Today.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.sftoday.com/feedback.html">
+  <!-- Open Graph tags (controls how links look when shared on social media) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Feedback - SF Today">
+  <meta property="og:description" content="Send feedback, report a bug, or suggest something for SF Today.">
+  <meta property="og:url" content="https://www.sftoday.com/feedback.html">
+  <meta property="og:site_name" content="SF Today">
+  <meta property="og:image" content="https://www.sftoday.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SF Today — your daily guide to San Francisco">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Feedback - SF Today">
+  <meta name="twitter:description" content="Send feedback, report a bug, or suggest something for SF Today.">
+  <meta name="twitter:image" content="https://www.sftoday.com/og-image.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicons (real image files — see README for how to swap in your own branding) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#10243E">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <a href="donate.html" class="side-tab side-tab-left">💛 Donate</a>
+  <a href="index.html" class="side-tab side-tab-right">🏠 Home</a>
+  <header class="simple-header">
+    <a href="index.html" class="back-link">← Back to SF Today</a>
+    <h1>Got Feedback?</h1>
+    <p>Found a bug, have an idea, or send feedback — this goes straight to the person building the site and powers future improvements. Include relevant details and contact information for follow up. Help keep SF Today local and useful!  </p>
+  </header>
+  <main>
+    <section class="feedback-box">
+      <!--
+        Replace YOUR_FORM_ID with a free Formspree endpoint (formspree.io, ~2 min setup)
+        to receive submissions as a clean dashboard instead of the mailto fallback below.
+      -->
+      <form id="feedback-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="fb-name">Name (optional)</label>
+        <input type="text" id="fb-name" name="name" placeholder="Your name">
+        <label for="fb-email">Email (optional, in case we want to follow up)</label>
+        <input type="email" id="fb-email" name="email" placeholder="you@email.com">
+        <label for="fb-rating">How would you rate SF Today? (optional)</label>
+        <div class="star-rating" id="fb-rating" role="radiogroup" aria-label="Star rating out of 5">
+          <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+          <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+          <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+          <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+          <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+        </div>
+        <input type="hidden" id="fb-rating-value" name="rating" value="">
+        <label for="fb-message">Your feedback</label>
+        <textarea id="fb-message" name="message" placeholder="What's on your mind?"></textarea>
+        <button type="submit">Send Feedback</button>
+      </form>
+      <p id="feedback-status" class="donation-note"></p>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a> ·
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="feedback.html">Feedback</a> ·
+      <a href="donate.html">Donate</a>
+    </div>
+    <p>SF Today — Your daily guide to exploring San Francisco. Helping locals and visitors discover the best of SF.</p>
+    <p>Built by a local SF developer • Version 1.0 • © 2026</p>
+    <p>Based in San Francisco · Contact: sftoday@gmail.com</p>
+  </footer>
+  <script src="confetti.js"></script>
+  <script>
+    const feedbackForm = document.getElementById('feedback-form');
+    const feedbackStatus = document.getElementById('feedback-status');
+    // Matches the contact address published in the site footer and About page.
+    // Update in both places if it ever changes.
+    const FALLBACK_EMAIL = "sftoday@gmail.com";
+
+    // --- STAR RATING ---
+    const starButtons = document.querySelectorAll('.star-btn');
+    const ratingValueInput = document.getElementById('fb-rating-value');
+    let selectedRating = 0;
+
+    function paintStars(upTo) {
+      starButtons.forEach(btn => {
+        const val = parseInt(btn.getAttribute('data-value'), 10);
+        btn.classList.toggle('filled', val <= upTo);
+      });
+    }
+
+    starButtons.forEach(btn => {
+      const val = parseInt(btn.getAttribute('data-value'), 10);
+      btn.addEventListener('mouseenter', () => paintStars(val));
+      btn.addEventListener('mouseleave', () => paintStars(selectedRating));
+      btn.addEventListener('click', () => {
+        selectedRating = val;
+        ratingValueInput.value = val;
+        paintStars(val);
+      });
+    });
+
+    function resetForm() {
+      feedbackForm.reset();
+      selectedRating = 0;
+      paintStars(0);
+    }
+
+    feedbackForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const actionUrl = feedbackForm.getAttribute('action');
+      const name = document.getElementById('fb-name').value || 'Anonymous';
+      const message = document.getElementById('fb-message').value.trim();
+
+      // Require at least a rating or a message — not a fully empty submission
+      if (!message && !selectedRating) {
+        feedbackStatus.textContent = 'Give a star rating or write a message before sending.';
+        return;
+      }
+
+      // No real Formspree endpoint configured yet — fall back to opening
+      // the visitor's email client instead, so this still works today.
+      if (actionUrl.includes('YOUR_FORM_ID')) {
+        const ratingLine = selectedRating ? `Rating: ${selectedRating}/5\n` : '';
+        const subject = encodeURIComponent('SF Today Feedback');
+        const body = encodeURIComponent(`From: ${name}\n${ratingLine}\n${message}`);
+        feedbackStatus.textContent = 'Opening your email app to send this — add a real Formspree ID in feedback.html for a smoother, no-email-app experience.';
+        if (typeof launchConfetti === 'function') launchConfetti();
+        window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
+        resetForm();
+        return;
+      }
+
+      // A real Formspree endpoint is configured — submit via fetch so we can
+      // celebrate and confirm without navigating the visitor away from the page.
+      const submitBtn = feedbackForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      feedbackStatus.textContent = 'Sending...';
+
+      try {
+        const formData = new FormData(feedbackForm);
+        const response = await fetch(actionUrl, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          feedbackStatus.textContent = '✅ Thanks — your feedback was sent!';
+          if (typeof launchConfetti === 'function') launchConfetti();
+          resetForm();
+        } else {
+          feedbackStatus.textContent = "Something went wrong sending that. Try again, or email us directly.";
+        }
+      } catch (error) {
+        feedbackStatus.textContent = "Couldn't reach the server. Check your connection and try again.";
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
