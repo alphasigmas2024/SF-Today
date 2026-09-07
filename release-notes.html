@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Release Notes - SF Today</title>
+  <meta name="description" content="A running log of every update, feature, and tweak made to SF Today.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.sftoday.com/release-notes.html">
+  <!-- Open Graph tags (controls how links look when shared on social media) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Release Notes - SF Today">
+  <meta property="og:description" content="A running log of every update, feature, and tweak made to SF Today.">
+  <meta property="og:url" content="https://www.sftoday.com/release-notes.html">
+  <meta property="og:site_name" content="SF Today">
+  <meta property="og:image" content="https://www.sftoday.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SF Today — your daily guide to San Francisco">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Release Notes - SF Today">
+  <meta name="twitter:description" content="A running log of every update, feature, and tweak made to SF Today.">
+  <meta name="twitter:image" content="https://www.sftoday.com/og-image.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicons (real image files — see README for how to swap in your own branding) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#10243E">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <a href="donate.html" class="side-tab side-tab-left">💛 Donate</a>
+  <a href="feedback.html" class="side-tab side-tab-right">💬 Feedback</a>
+  <header class="simple-header">
+    <a href="index.html" class="back-link">← Back to SF Today</a>
+    <h1>Release Notes</h1>
+    <p>A running log of every update, feature, and tweak made to SF Today.</p>
+  </header>
+  <main>
+    <p class="tool-subtitle" style="margin: -0.5rem 0 1.5rem 0;">Dates below are placeholders spread across a month for readability — swap in your real dates whenever you're ready.</p>
+    <section class="tool-box">
+      <div class="log-entry">
+        <h3>📅 Day 30</h3>
+        <div class="log-category">Launch Ready</div>
+        <ul>
+          <li>Real favicons, full app icon set, and a proper 1200×630 social share image — replacing the old placeholder favicon everywhere.</li>
+          <li>Security headers and one-click deploy configs added for Netlify and Vercel.</li>
+          <li>A full site-wide QA pass: every link checked, every page's HTML validated, every script tested for errors.</li>
+          <li>Simplified the codebase down to a single JavaScript file for easier maintenance.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 28</h3>
+        <div class="log-category">Added</div>
+        <ul>
+          <li>🎡 "Spin the SF Wheel" — one spin a day, lands on a category (Eat, Free Thing, Outdoor, Date Idea, Hidden Gem, Neighborhood, Sight, or Trivia) and reveals a real, shareable pick.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 25</h3>
+        <div class="log-category">Added — Personalization</div>
+        <ul>
+          <li>"Which SF Neighborhood Are You?" — a 5-question quiz with a shareable result.</li>
+          <li>"Find My Nearest Neighborhood," using optional, privacy-respecting browser geolocation — nothing is ever sent to a server.</li>
+          <li>A toast notification when the weather clears up while you have the tab open.</li>
+          <li>Basic offline support — the site's core pages now load even without a connection, once you've visited before.</li>
+          <li>A time-of-day greeting in the header (morning / afternoon / evening).</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 22</h3>
+        <div class="log-category">Added — Discovery Tools</div>
+        <ul>
+          <li>Site-wide Quick Find — press <code>/</code> or tap 🔍 to search every spot, neighborhood, slang term, and FAQ on the site.</li>
+          <li>"My SF Checklist" — mark any spot as visited anywhere on the site, and track progress toward exploring the whole guide, with milestone celebrations at 25/50/75/100%.</li>
+          <li>SF Essentials — a quick-reference card for non-emergency numbers, transit payment, tipping norms, and parking.</li>
+          <li>"What to Bring Today" — a packing list generated live from the weather and season.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 20</h3>
+        <div class="log-category">Added — Live City Data</div>
+        <ul>
+          <li>Live sunset & golden hour countdown, pulled from a public sunset API.</li>
+          <li>"Karl the Fog Meter" — a fun visual read on today's fog level.</li>
+          <li>SF Trivia of the Day, rotating daily.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 18</h3>
+        <div class="log-category">Added — Plan & Share</div>
+        <ul>
+          <li>Share and Print buttons on every generated plan.</li>
+          <li>"🎲 Surprise Me" button for instant random picks when you can't decide.</li>
+          <li>The planner now nudges toward outdoor or indoor picks based on the live weather.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 16</h3>
+        <div class="log-category">Added — Smarter Planning</div>
+        <ul>
+          <li>More planner filters: Indoor/Outdoor, a dog-friendly toggle, and an "I'm a Local" persona.</li>
+          <li>A much bigger activity database behind the planner to match against.</li>
+          <li>SF Today is now installable as a home-screen app on phones.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 14</h3>
+        <div class="log-category">Added — Gamification Begins</div>
+        <ul>
+          <li>Launched "Guess the SF Spot," a daily mystery-location game with a streak counter, rotating through five puzzles by day.</li>
+          <li>Confetti celebrations on real completed actions — winning the game, signing up, sending feedback, donating.</li>
+          <li>Native share-sheet support on mobile for sharing results.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 11</h3>
+        <div class="log-category">Fixed — Honesty Pass</div>
+        <ul>
+          <li>Email signup no longer falsely confirms success when no mailing list is connected — it now says so plainly and offers an email fallback.</li>
+          <li>Donate button no longer dead-ends on an unconfigured payment link — it now offers an email fallback to arrange a donation directly.</li>
+          <li>Muni Alerts shows an honest "coming soon" message instead of setup instructions meant for the site owner.</li>
+          <li>Corrected a typo in the "Is San Francisco expensive?" FAQ answer (and its structured data).</li>
+          <li>Unified the version number and footer text across every page.</li>
+          <li>This page was rebuilt to share the same design system, dark mode, and navigation as the rest of the site.</li>
+          <li>Added a proper 404 page.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 8</h3>
+        <div class="log-category">Added — Community Features</div>
+        <ul>
+          <li>Feedback page, with an optional star rating.</li>
+          <li>Donation page with preset and custom amounts.</li>
+          <li>Weekly email signup.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 5</h3>
+        <div class="log-category">Added — Personality & Trust</div>
+        <ul>
+          <li>SF Slang Glossary and a Frequently Asked Questions section.</li>
+          <li>About, Privacy Policy, and Terms of Service pages.</li>
+          <li>Dark mode, site-wide.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 3</h3>
+        <div class="log-category">Added — Local Data Integration</div>
+        <ul>
+          <li>Real-time street sweeping lookup, pulled from San Francisco's official public data.</li>
+          <li>"This Week in SF" — real recurring farmers markets, by day of the week.</li>
+          <li>"This Week's Local Favorite," a rotating hidden-gem pick.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 Day 1</h3>
+        <div class="log-category">Initial Launch</div>
+        <ul>
+          <li>Launched the SF Today homepage with a custom "Build My Plan" filter (who you are, budget, time available).</li>
+          <li>Built 8 evergreen guide categories — eats, family activities, free things to do, and more.</li>
+          <li>Added guides for all 11 San Francisco neighborhoods.</li>
+          <li>Live SF clock and live weather in the header.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a> ·
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="feedback.html">Feedback</a> ·
+      <a href="donate.html">Donate</a>
+    </div>
+    <p>SF Today — Your daily guide to exploring San Francisco. Helping locals and visitors discover the best of SF.</p>
+    <p>Built by a local SF developer • Version 1.0 • © 2026</p>
+    <p>Based in San Francisco · Contact: sftoday@gmail.com</p>
+  </footer>
+</body>
+</html>
