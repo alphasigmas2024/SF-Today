@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support SF Today</title>
+  <meta name="description" content="Support SF Today, a free, independent, locally-built guide to San Francisco.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.sftoday.com/donate.html">
+  <!-- Open Graph tags (controls how links look when shared on social media) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Support SF Today">
+  <meta property="og:description" content="Support SF Today, a free, independent, locally-built guide to San Francisco.">
+  <meta property="og:url" content="https://www.sftoday.com/donate.html">
+  <meta property="og:site_name" content="SF Today">
+  <meta property="og:image" content="https://www.sftoday.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SF Today — your daily guide to San Francisco">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support SF Today">
+  <meta name="twitter:description" content="Support SF Today, a free, independent, locally-built guide to San Francisco.">
+  <meta name="twitter:image" content="https://www.sftoday.com/og-image.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicons (real image files — see README for how to swap in your own branding) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#10243E">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <a href="index.html" class="side-tab side-tab-left">🏠 Home</a>
+  <a href="feedback.html" class="side-tab side-tab-right">💬 Feedback</a>
+  <header class="simple-header">
+    <a href="index.html" class="back-link">← Back to SF Today</a>
+    <h1>Support SF Today</h1>
+    <p>Free, ad-free, and built by one person in their spare time.</p>
+  </header>
+  <main>
+    <section class="donation-box">
+      <h2>Chip In</h2>
+      <p class="sub-text">SF Today doesn't run ads and doesn't sell your data. If it's helped you find something good to do, a small donation helps cover hosting and keeps it going.</p>
+      <div class="tiers-grid">
+        <button type="button" class="tier-btn" data-amount="3">$3 <span>Fog Fan</span></button>
+        <button type="button" class="tier-btn" data-amount="5">$5 <span>Muni Rider</span></button>
+        <button type="button" class="tier-btn" data-amount="10">$10 <span>Local Favorite</span></button>
+        <button type="button" class="tier-btn" data-amount="25">$25 <span>Bridge Builder</span></button>
+        <button type="button" class="tier-btn wide" data-amount="50">$50 <span>Bay Legend</span></button>
+      </div>
+      <form id="pay-form" class="pay-form">
+        <input type="number" id="custom-amount" class="num-box" placeholder="$ Custom amount" min="1">
+        <button type="submit">Continue to Payment</button>
+      </form>
+      <p id="pay-feedback" class="donation-note"></p>
+      <p class="donation-note">You'll be taken to PayPal to complete your donation securely — SF Today never sees or stores your payment details.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a> ·
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="feedback.html">Feedback</a> ·
+      <a href="donate.html">Donate</a>
+    </div>
+    <p>SF Today — Your daily guide to exploring San Francisco. Helping locals and visitors discover the best of SF.</p>
+    <p>Built by a local SF developer • Version 1.0 • © 2026</p>
+    <p>Based in San Francisco · Contact: sftoday@gmail.com</p>
+  </footer>
+  <script src="confetti.js"></script>
+  <script>
+    // Replace this with your real PayPal.me link (or swap the whole function
+    // below to point at Ko-fi, Buy Me a Coffee, Venmo, etc.)
+    const DONATION_LINK_BASE = "https://paypal.me/YOUR_PAYPAL_HANDLE";
+    // Matches the contact address published in the site footer and About page.
+    const FALLBACK_EMAIL = "sftoday@gmail.com";
+
+    const tierButtons = document.querySelectorAll('.tier-btn');
+    const customAmountInput = document.getElementById('custom-amount');
+    const payForm = document.getElementById('pay-form');
+    const payFeedback = document.getElementById('pay-feedback');
+
+    tierButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        tierButtons.forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        customAmountInput.value = this.getAttribute('data-amount');
+      });
+    });
+
+    payForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const amount = customAmountInput.value;
+
+      if (!amount || Number(amount) <= 0) {
+        payFeedback.textContent = 'Enter an amount first.';
+        return;
+      }
+
+      if (DONATION_LINK_BASE.includes('YOUR_PAYPAL_HANDLE')) {
+        // No real payment link configured yet — rather than a dead-end error,
+        // offer an honest way to still follow through: email to arrange it.
+        const subject = encodeURIComponent(`SF Today donation — $${amount}`);
+        const body = encodeURIComponent(`I'd like to donate $${amount} to SF Today. Let me know the best way to send it!`);
+        payFeedback.textContent = `Online payments aren't connected yet — opening your email app so you can arrange a $${amount} donation directly.`;
+        if (typeof launchConfetti === 'function') launchConfetti();
+        window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
+        return;
+      }
+
+      // Hands off to the real payment provider — SF Today never touches the transaction itself
+      payFeedback.textContent = `Thank you! Opening PayPal to complete your $${amount} donation.`;
+      if (typeof launchConfetti === 'function') launchConfetti();
+      window.open(`${DONATION_LINK_BASE}/${amount}`, '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
