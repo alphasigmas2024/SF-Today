@@ -3,32 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SF Today - The Homepage for SF</title>
-  
+  <title>SF Today - The Homepage for SF | Free Things to Do, Eats & More</title>
+
+  <!-- Primary SEO meta tags -->
+  <meta name="description" content="Your daily guide to San Francisco. Build a custom plan by budget and time, check live SF weather, look up street sweeping, and explore guides to free things to do, family activities, and classic SF eats.">
+  <meta name="robots" content="index, follow">
+  <!-- Replace with your real domain once the site is live -->
+  <link rel="canonical" href="https://www.sftoday.com/">
+
+  <!-- Open Graph tags (controls how links look when shared on social media) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SF Today - The Homepage for SF">
+  <meta property="og:description" content="Your daily guide to San Francisco — build a custom plan, check live weather, look up street sweeping, and explore free things to do, family activities, and classic SF eats.">
+  <meta property="og:url" content="https://www.sftoday.com/">
+  <meta property="og:site_name" content="SF Today">
+  <meta property="og:image" content="https://www.sftoday.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SF Today — your daily guide to San Francisco">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SF Today - The Homepage for SF">
+  <meta name="twitter:description" content="Your daily guide to San Francisco — build a custom plan, check live weather, look up street sweeping, and explore free things to do, family activities, and classic SF eats.">
+  <meta name="twitter:image" content="https://www.sftoday.com/og-image.png">
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Favicons (real image files — see README for how to swap in your own branding) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#10243E">
+
+  <!-- Makes SF Today installable as a home-screen app on phones -->
+  <link rel="manifest" href="manifest.json">
+
+  <!--
+    OPTIONAL PRIVACY-FRIENDLY ANALYTICS
+    SF Today currently ships with zero analytics or tracking, matching the
+    "no third-party analytics" promise in privacy.html. If you want basic,
+    non-invasive visibility into what people click, Plausible and GoatCounter
+    are both privacy-respecting, cookie-free options. Uncomment ONE line below
+    and update privacy.html to mention it once enabled — don't turn this on
+    without updating that page, since it currently promises none exists.
+
+    <script defer data-domain="sftoday.com" src="https://plausible.io/js/script.js"></script>
+    <script src="https://gc.zgo.at/count.js" data-goatcounter="https://YOUR_CODE.goatcounter.com/count"></script>
+  -->
+
+  <!-- Structured data: tells Google what this site is, in a machine-readable format -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SF Today",
+    "url": "https://www.sftoday.com/",
+    "description": "A daily guide to San Francisco with a custom activity planner, live weather, street sweeping lookup, Muni alerts, and neighborhood guides.",
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- Structured data: FAQ content, matches the visible FAQ section below word-for-word -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's the best day to visit the Ferry Building Farmers Market?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Saturday is the biggest, with 100+ vendors. Tuesday and Thursday have smaller, quieter versions of the same market if you want to avoid the crowds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is San Francisco safe to walk around at night?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Like any major city, it depends heavily on the neighborhood and block. Stick to busy, well-lit areas at night, use rideshare or taxis for longer trips after dark, and use the same street smarts you would in any big city."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I avoid a street sweeping parking ticket in SF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use our Street Sweeping Lookup tool to check your street's schedule, then always double check the posted sign on your exact block, since times can vary from block to block even on the same street."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is San Francisco expensive to visit or live in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, generally — it's consistently one of the most expensive cities in the US, and as of 2026 it's usually ranked as the second most expensive after New York City. That said, there's a lot to do for free or cheap; check our Free Things to Do guide for ideas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is San Francisco so foggy in the summer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The fog, nicknamed 'Karl the Fog' by locals, forms when warm inland air pulls cool, moist ocean air over the city. It's most common in the summer months. Bring layers, even in July."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a car in San Francisco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not really. Muni and BART cover most of the city, and many neighborhoods are very walkable. A car mostly becomes useful for trips outside the city, like Marin or the Peninsula."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>SF Today</h1>
-    <p id="day-title">Here's what's worth doing in San Francisco.</p>
-  </header>
+  <a href="donate.html" class="side-tab side-tab-left">💛 Donate</a>
+  <a href="feedback.html" class="side-tab side-tab-right">💬 Feedback</a>
 
+  <header>
+    <svg class="hero-bg" viewBox="0 0 1600 500" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of the Golden Gate Bridge at dusk with fog">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0B1D33"/>
+          <stop offset="42%" stop-color="#1B3A5C"/>
+          <stop offset="78%" stop-color="#C1440E"/>
+          <stop offset="100%" stop-color="#F2A65A"/>
+        </linearGradient>
+        <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0A1826"/>
+          <stop offset="100%" stop-color="#050C14"/>
+        </linearGradient>
+        <filter id="fogBlur" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="22"/>
+        </filter>
+      </defs>
+
+      <!-- Sky -->
+      <rect x="0" y="0" width="1600" height="430" fill="url(#skyGrad)"/>
+
+      <!-- City skyline silhouette -->
+      <g fill="#0B1D2E" opacity="0.85">
+        <rect x="60" y="360" width="30" height="70"/>
+        <rect x="100" y="340" width="24" height="90"/>
+        <rect x="134" y="375" width="34" height="55"/>
+        <rect x="1420" y="350" width="26" height="80"/>
+        <rect x="1456" y="380" width="30" height="50"/>
+        <rect x="1496" y="365" width="22" height="65"/>
+      </g>
+
+      <!-- Suspension cables -->
+      <path d="M 130 260 Q 460 90 460 130 Q 720 370 900 370 Q 1080 370 1140 130 Q 1140 90 1470 260"
+            fill="none" stroke="#2A0E06" stroke-width="5" opacity="0.9"/>
+      <path d="M 130 300 Q 460 150 460 130 Q 720 340 900 340 Q 1080 340 1140 130 Q 1140 150 1470 300"
+            fill="none" stroke="#2A0E06" stroke-width="4" opacity="0.7"/>
+
+      <!-- Suspender cables (vertical) -->
+      <g stroke="#2A0E06" stroke-width="2" opacity="0.6">
+        <line x1="300" y1="200" x2="300" y2="368"/>
+        <line x1="360" y1="160" x2="360" y2="368"/>
+        <line x1="560" y1="150" x2="560" y2="368"/>
+        <line x1="660" y1="220" x2="660" y2="368"/>
+        <line x1="760" y1="280" x2="760" y2="368"/>
+        <line x1="840" y1="300" x2="840" y2="368"/>
+        <line x1="960" y1="280" x2="960" y2="368"/>
+        <line x1="1040" y1="220" x2="1040" y2="368"/>
+        <line x1="1240" y1="150" x2="1240" y2="368"/>
+        <line x1="1300" y1="160" x2="1300" y2="368"/>
+      </g>
+
+      <!-- Bridge deck -->
+      <rect x="60" y="368" width="1480" height="10" fill="#2A0E06"/>
+
+      <!-- Towers -->
+      <g fill="#210B05">
+        <rect x="430" y="80" width="60" height="290"/>
+        <rect x="420" y="140" width="80" height="16"/>
+        <rect x="420" y="230" width="80" height="16"/>
+        <rect x="420" y="320" width="80" height="16"/>
+
+        <rect x="1110" y="80" width="60" height="290"/>
+        <rect x="1100" y="140" width="80" height="16"/>
+        <rect x="1100" y="230" width="80" height="16"/>
+        <rect x="1100" y="320" width="80" height="16"/>
+      </g>
+
+      <!-- Fog banks rolling through the towers -->
+      <ellipse cx="460" cy="230" rx="220" ry="70" fill="#EDEFF2" opacity="0.35" filter="url(#fogBlur)"/>
+      <ellipse cx="1140" cy="260" rx="240" ry="80" fill="#EDEFF2" opacity="0.3" filter="url(#fogBlur)"/>
+      <ellipse cx="800" cy="340" rx="500" ry="55" fill="#EDEFF2" opacity="0.25" filter="url(#fogBlur)"/>
+
+      <!-- Water -->
+      <rect x="0" y="430" width="1600" height="70" fill="url(#waterGrad)"/>
+      <g stroke="#F2A65A" stroke-width="2" opacity="0.25">
+        <line x1="200" y1="452" x2="340" y2="452"/>
+        <line x1="700" y1="468" x2="900" y2="468"/>
+        <line x1="1150" y1="450" x2="1300" y2="450"/>
+      </g>
+    </svg>
+
+    <div class="header-inner">
+      <h1>SF Today</h1>
+      <p id="day-title">Here's what's worth doing in San Francisco.</p>
+      <div class="header-controls">
+        <!-- Displays the live day and time inside the header -->
+        <div id="live-clock">Loading live time...</div>
+        <div id="weather-widget">Loading weather...</div>
+        <div class="header-btn-row">
+          <button id="search-open-btn" class="dark-toggle" aria-label="Search the site" title="Search (press /)">🔍</button>
+          <button id="checklist-open-btn" class="dark-toggle" aria-label="My SF Checklist" title="My SF Checklist">🗺️ <span id="checklist-progress-label">0/0</span></button>
+          <button id="dark-mode-toggle" class="dark-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+        </div>
+      </div>
+    </div>
+  </header>
   <main>
+    <!-- Centered in the white space right above the planner box -->
+    <div class="badge-container">
+      <a href="release-notes.html" class="whats-new-badge">
+        <span class="pulse-dot"></span>
+        See What's New
+      </a>
+    </div>
+
     <!-- THE PERSONALIZED PLANNER -->
     <section class="planner-box">
       <h2>Build My Custom Plan</h2>
-      
+
       <div class="input-row">
         <div class="input-group">
           <label>Who are you?</label>
           <select id="persona">
             <option value="teen">I'm a Teenager</option>
-            <option value="parent">I'm a Parent (Kids)</option>
+            <option value="parent">I'm a Parent (w/wo Kids)</option>
             <option value="date">I'm on a Date</option>
-            <option value="tourist">I'm Visiting</option>
+            <option value="tourist">I'm Visiting (Tourist)</option>
+            <option value="local">I'm a Local</option>
           </select>
         </div>
-
         <div class="input-group">
           <label>Budget?</label>
           <select id="budget">
@@ -37,7 +256,6 @@
             <option value="high">Over $100</option>
           </select>
         </div>
-
         <div class="input-group">
           <label>Time available?</label>
           <select id="time">
@@ -46,20 +264,162 @@
           </select>
         </div>
       </div>
-
-      <button id="generate-btn">Generate My Plan</button>
+      <div class="input-row">
+        <div class="input-group">
+          <label>Indoor or outdoor?</label>
+          <select id="vibe">
+            <option value="either">Doesn't matter</option>
+            <option value="outdoor">Outdoor</option>
+            <option value="indoor">Indoor</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-checkbox-row">
+        <input type="checkbox" id="dog-friendly">
+        <label for="dog-friendly">🐾 Bringing a dog — only show dog-friendly spots</label>
+      </div>
+      <button id="generate-btn">Create My Plan</button>
+      <button id="surprise-btn" class="secondary-btn surprise-btn">🎲 Not Sure? Surprise Me</button>
     </section>
 
-    <!-- HIDDEN RESULTS SECTION -->
+    <!-- HIDDEN RESULTS SECTION (shared by planner, dashboard cards, neighborhood cards, and Surprise Me) -->
     <section id="results-section" class="hidden">
       <div class="results-header">
         <h2 id="results-title">Your Guide</h2>
-        <button id="close-btn">&times;</button>
+        <div class="results-header-actions">
+          <button id="share-plan-btn" class="icon-btn" title="Share this plan" aria-label="Share this plan">🔗</button>
+          <button id="print-plan-btn" class="icon-btn" title="Print this plan" aria-label="Print this plan">🖨️</button>
+          <button id="close-btn" aria-label="Close">&times;</button>
+        </div>
       </div>
       <div id="itinerary-content"></div>
     </section>
 
-    <!-- THE 10 EVERGREEN DASHBOARD CARDS -->
+    <!-- STREET SWEEPING LOOKUP -->
+    <section class="tool-box">
+      <h2>🅿️ Street Sweeping Lookup</h2>
+      <p class="tool-subtitle">Search by street name using San Francisco's official public data. This shows every block on that street — always confirm against the posted sign on your exact block before parking, since schedules can vary block-by-block.</p>
+      <div class="tool-input-row">
+        <input type="text" id="sweep-street-input" placeholder="e.g. Valencia St">
+        <button id="sweep-search-btn">Check</button>
+      </div>
+      <div id="sweep-results"></div>
+    </section>
+
+    <!-- MUNI SERVICE ALERTS -->
+    <section class="tool-box">
+      <h2>🚋 Muni Service Alerts</h2>
+      <p class="tool-subtitle">Live service alerts pulled from 511.org's real-time transit API.</p>
+      <div id="muni-alerts-content">
+        <p class="no-events-message">Loading alerts...</p>
+      </div>
+    </section>
+
+    <!-- SUNSET, GOLDEN HOUR & FOG FORECAST -->
+    <section class="tool-box">
+      <h2>🌅 Sunset & Golden Hour</h2>
+      <p class="tool-subtitle">Live sunset time for San Francisco, pulled from a public sunrise/sunset API — good for planning that last Twin Peaks or Lands End walk.</p>
+      <div id="sunset-content">
+        <p class="no-events-message">Loading today's sunset time...</p>
+      </div>
+      <hr class="tool-divider">
+      <h3>🌫️ Karl the Fog Meter</h3>
+      <div class="fog-meter">
+        <div class="fog-meter-track"><div class="fog-meter-fill" id="fog-meter-fill"></div></div>
+        <p class="fog-meter-status" id="fog-meter-status">Reading current conditions...</p>
+      </div>
+      <hr class="tool-divider">
+      <h3>📜 SF Trivia of the Day</h3>
+      <div id="trivia-content"></div>
+      <hr class="tool-divider">
+      <h3>🎒 What to Bring Today</h3>
+      <div id="packing-content">
+        <p class="no-events-message">Loading recommendations...</p>
+      </div>
+    </section>
+
+    <!-- SF ESSENTIALS: PRACTICAL INFO EVERY GUIDE SHOULD HAVE -->
+    <section class="tool-box">
+      <h2>📋 SF Essentials</h2>
+      <p class="tool-subtitle">The practical numbers and norms that don't fit neatly anywhere else.</p>
+      <div class="essentials-grid">
+        <div class="essential-item">
+          <strong>Emergency</strong>
+          <span>911</span>
+        </div>
+        <div class="essential-item">
+          <strong>Non-Emergency Police</strong>
+          <span>(415) 553-0123</span>
+        </div>
+        <div class="essential-item">
+          <strong>City Services (311)</strong>
+          <span>311, or (415) 701-2311 from outside SF</span>
+        </div>
+        <div class="essential-item">
+          <strong>Transit Payment</strong>
+          <span>Clipper card or the Clipper app — works on Muni, BART, and most Bay Area transit</span>
+        </div>
+        <div class="essential-item">
+          <strong>Parking Meters</strong>
+          <span>The SFMTA Pay by Phone app, or coins/card at the meter</span>
+        </div>
+        <div class="essential-item">
+          <strong>Tipping Norms</strong>
+          <span>~18–20% at sit-down restaurants; many cafes have a tip jar or a screen prompt, never required</span>
+        </div>
+        <div class="essential-item">
+          <strong>Car Break-Ins</strong>
+          <span>Common citywide — never leave anything visible in a parked car, not even an empty bag</span>
+        </div>
+        <div class="essential-item">
+          <strong>Rideshare & Taxis</strong>
+          <span>Uber and Lyft both operate citywide; Flywheel is a well-known local taxi app</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- THIS WEEK IN SF - RECURRING WEEKLY EVENTS FEED -->
+    <section class="weekly-events-box">
+      <h2>This Week in SF</h2>
+      <p class="weekly-events-subtitle">Real recurring markets and happenings — always confirm before heading out, as schedules can pause for holidays.</p>
+      <div class="day-tabs" id="day-tabs">
+        <button class="day-tab" data-day="0">Sun</button>
+        <button class="day-tab" data-day="1">Mon</button>
+        <button class="day-tab" data-day="2">Tue</button>
+        <button class="day-tab" data-day="3">Wed</button>
+        <button class="day-tab" data-day="4">Thu</button>
+        <button class="day-tab" data-day="5">Fri</button>
+        <button class="day-tab" data-day="6">Sat</button>
+      </div>
+      <div id="weekly-events-content"></div>
+    </section>
+
+    <!-- EXPLORE BY NEIGHBORHOOD -->
+    <section class="dashboard-section">
+      <div class="section-heading-row">
+        <h2>Explore by Neighborhood</h2>
+        <div class="section-heading-actions">
+          <button id="quiz-start-btn" class="secondary-btn">🧭 Take the Quiz</button>
+          <button id="geo-nearest-btn" class="secondary-btn">📍 Find My Nearest</button>
+        </div>
+      </div>
+      <p id="geo-result-message" class="no-events-message hidden"></p>
+      <div class="dashboard-grid">
+        <div class="dash-card" data-neighborhood="richmond">🌫️ Inner / Outer Richmond</div>
+        <div class="dash-card" data-neighborhood="marina">⛵ Marina / Pacific Heights</div>
+        <div class="dash-card" data-neighborhood="telegraphrussian">🗼 Telegraph Hill / Russian Hill</div>
+        <div class="dash-card" data-neighborhood="sunset">🌊 Inner / Outer Sunset</div>
+        <div class="dash-card" data-neighborhood="haight">🌈 Haight / Western Addition</div>
+        <div class="dash-card" data-neighborhood="soma">🏟️ SOMA / Mission Bay</div>
+        <div class="dash-card" data-neighborhood="westportal">🚋 West Portal / Lake Merced</div>
+        <div class="dash-card" data-neighborhood="bayview">🌉 Bayview / Hunters Point</div>
+        <div class="dash-card" data-neighborhood="castronoe">🏳️‍🌈 Castro / Noe Valley</div>
+        <div class="dash-card" data-neighborhood="excelsior">🏘️ Excelsior / Outer Mission</div>
+        <div class="dash-card" data-neighborhood="missionbernal">🌮 Mission / Bernal Heights</div>
+      </div>
+    </section>
+
+    <!-- THE EVERGREEN DASHBOARD CARDS -->
     <section class="dashboard-section">
       <h2>Explore SF Guides</h2>
       <div class="dashboard-grid">
@@ -73,13 +433,170 @@
         <div class="dash-card" data-category="stories">📰 Timeless SF Facts</div>
       </div>
     </section>
+
+    <!-- THIS WEEK'S LOCAL FAVORITE (rotates weekly) -->
+    <section class="tool-box">
+      <h2>⭐ This Week's Local Favorite</h2>
+      <p class="tool-subtitle">A rotating hidden-gem pick from around the city — changes every week.</p>
+      <div id="local-favorite-content"></div>
+    </section>
+
+    <!-- SF SLANG GLOSSARY -->
+    <section class="tool-box" id="slang-section">
+      <h2>🗣️ Talk Like a Local: SF Slang Glossary</h2>
+      <p class="tool-subtitle">Tap a term to see what it means.</p>
+      <div class="glossary-grid">
+        <details class="glossary-item"><summary>The City</summary><p>What locals call San Francisco itself — never "San Fran," and only tourists say "Frisco."</p></details>
+        <details class="glossary-item"><summary>Karl the Fog</summary><p>The affectionate nickname locals gave the thick marine layer that rolls in over the city, especially in summer.</p></details>
+        <details class="glossary-item"><summary>Muni</summary><p>The San Francisco Municipal Transportation Agency — the buses, light rail, and streetcars that get most locals around.</p></details>
+        <details class="glossary-item"><summary>Hella</summary><p>Bay Area-born slang meaning "very" or "a lot" — as in "that hill is hella steep."</p></details>
+        <details class="glossary-item"><summary>The Loin</summary><p>Local shorthand for the Tenderloin neighborhood.</p></details>
+        <details class="glossary-item"><summary>The Wiggle</summary><p>The zigzagging bike route through the Lower Haight and Mission that dodges most of the city's hills.</p></details>
+        <details class="glossary-item"><summary>Dolores</summary><p>What locals call Dolores Park — no need to say "park," everyone knows what you mean.</p></details>
+        <details class="glossary-item"><summary>The Mish</summary><p>A casual nickname for the Mission District.</p></details>
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS -->
+    <section class="tool-box" id="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="glossary-grid">
+        <details class="glossary-item">
+          <summary>What's the best day to visit the Ferry Building Farmers Market?</summary>
+          <p>Saturday is the biggest, with 100+ vendors. Tuesday and Thursday have smaller, quieter versions of the same market if you want to avoid the crowds.</p>
+        </details>
+        <details class="glossary-item">
+          <summary>Is San Francisco safe to walk around at night?</summary>
+          <p>Like any major city, it depends heavily on the neighborhood and block. Stick to busy, well-lit areas at night, use rideshare or taxis for longer trips after dark, and use the same street smarts you would in any big city.</p>
+        </details>
+        <details class="glossary-item">
+          <summary>How do I avoid a street sweeping parking ticket?</summary>
+          <p>Use our Street Sweeping Lookup tool above to check your street's schedule, then always double check the posted sign on your exact block, since times can vary block to block.</p>
+        </details>
+        <details class="glossary-item">
+          <summary>Is San Francisco expensive?</summary>
+          <p>Yes, generally — it's consistently one of the most expensive cities in the US, and as of 2026 it's usually ranked as the second most expensive after New York City. That said, there's a lot to do for free or cheap; check our Free Things to Do guide.</p>
+        </details>
+        <details class="glossary-item">
+          <summary>Why is San Francisco so foggy in the summer?</summary>
+          <p>The fog, nicknamed "Karl the Fog" by locals, forms when warm inland air pulls cool, moist ocean air over the city. It's most common in summer. Bring layers, even in July.</p>
+        </details>
+        <details class="glossary-item">
+          <summary>Do I need a car in San Francisco?</summary>
+          <p>Not really. Muni and BART cover most of the city, and many neighborhoods are very walkable. A car mostly becomes useful for trips outside the city.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ABOUT / TRUST SIGNAL -->
+    <section class="tool-box about-box">
+      <h2>About SF Today</h2>
+      <p>SF Today is an independent, locally-built guide to San Francisco. No ads, no sponsored placements — just a genuinely useful daily tool built by someone who actually lives here. It's a work in progress, and it's getting better every week.</p>
+    </section>
+
+    <!-- SPIN THE SF WHEEL (once a day — lands on a category, reveals one real pick) -->
+    <section class="tool-box">
+      <h2>🎡 Spin the SF Wheel</h2>
+      <p class="tool-subtitle">One spin a day. It lands on a category and hands you one real pick — a place to eat, a free thing to do, a hidden gem, whatever comes up.</p>
+      <div class="wheel-wrap">
+        <div class="wheel-pointer">▼</div>
+        <svg id="sf-wheel" class="sf-wheel" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <button id="wheel-spin-btn" class="secondary-btn wheel-spin-btn">Spin the Wheel</button>
+      <p id="wheel-status" class="no-events-message"></p>
+      <div id="wheel-result" class="hidden"></div>
+    </section>
+
+    <!-- GUESS THE SF SPOT (rotates to a new puzzle every day, same one for everyone) -->
+    <section class="tool-box">
+      <h2>🎮 Guess the SF Spot</h2>
+      <p class="tool-subtitle">A new mystery San Francisco location every day. Read a clue, take a guess — a wrong guess reveals another clue. Try to solve it in as few as possible.</p>
+      <span id="spot-streak" class="spot-streak hidden"></span>
+      <ol id="spot-clue-list" class="clue-list"></ol>
+      <div class="tool-input-row">
+        <input type="text" id="spot-guess-input" placeholder="Your guess...">
+        <button id="spot-guess-btn">Guess</button>
+      </div>
+      <p id="spot-feedback" class="no-events-message"></p>
+      <div id="spot-result" class="hidden"></div>
+      <button id="spot-reveal-btn" class="secondary-btn">Reveal Answer</button>
+    </section>
+
+    <!-- EMAIL SIGNUP -->
+    <section class="signup-box">
+      <h2>Never Miss What's Happening in SF</h2>
+      <p>Get a short weekly email with what's worth doing this week.</p>
+      <!--
+        Replace YOUR_SIGNUP_FORM_ID with a free Formspree endpoint (or swap
+        the action for Mailchimp/Buttondown/ConvertKit) to go live. Until then,
+        script.js honestly falls back to opening the visitor's email client
+        instead of pretending the signup worked.
+      -->
+      <form id="signup-form" class="signup-form" action="https://formspree.io/f/YOUR_SIGNUP_FORM_ID" method="POST">
+        <input type="email" name="EMAIL" id="signup-email" placeholder="you@email.com" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
   </main>
 
-  <script src="script.js"></script>
-  
+  <!-- SIGNUP MODAL (copy is set dynamically by script.js depending on whether a real list is connected) -->
+  <div id="signup-modal-overlay" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-icon">🎉</div>
+      <h3>Almost There!</h3>
+      <p id="modal-email-text">We'll send the best of SF straight to your inbox, every week.</p>
+      <button id="modal-close-btn">Sounds Good</button>
+    </div>
+  </div>
+
+  <!-- "WHICH SF NEIGHBORHOOD ARE YOU?" QUIZ MODAL -->
+  <div id="quiz-modal-overlay" class="modal-overlay hidden">
+    <div class="modal-box quiz-modal-box">
+      <button id="quiz-close-btn" class="quiz-close" aria-label="Close quiz">&times;</button>
+      <div id="quiz-content"></div>
+    </div>
+  </div>
+
+  <!-- SITE-WIDE QUICK FIND -->
+  <div id="search-modal-overlay" class="modal-overlay hidden">
+    <div class="modal-box search-modal-box">
+      <button id="search-close-btn" class="quiz-close" aria-label="Close search">&times;</button>
+      <input type="text" id="search-input" class="search-input" placeholder="Search spots, neighborhoods, slang, FAQs...">
+      <div id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- MY SF CHECKLIST -->
+  <div id="checklist-modal-overlay" class="modal-overlay hidden">
+    <div class="modal-box checklist-modal-box">
+      <button id="checklist-close-btn" class="quiz-close" aria-label="Close checklist">&times;</button>
+      <h3>🗺️ My SF Checklist</h3>
+      <p id="checklist-progress-text" class="quiz-result-desc"></p>
+      <div id="checklist-list"></div>
+      <button id="checklist-clear-btn" class="secondary-btn">Clear My Checklist</button>
+    </div>
+  </div>
+
 <footer>
-  <p>Built by a local SF developer - Version 0.1 : All Rights Reserved &copy; 2026</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a> ·
+    <a href="about.html">About</a> ·
+    <a href="privacy.html">Privacy</a> ·
+    <a href="terms.html">Terms</a> ·
+    <a href="feedback.html">Feedback</a> ·
+    <a href="donate.html">Donate</a>
+  </div>
+
+  <p>SF Today — Your daily guide to exploring San Francisco. Helping locals and visitors discover the best of SF.</p>
+  <p>Built by a local SF developer • Version 1.0 • © 2026</p>
+  <p>Based in San Francisco · Contact: sftoday@gmail.com</p>
 </footer>
 
+
+  <!-- Script loads AFTER all the HTML it references -->
+  <script src="confetti.js"></script>
+  <script src="script.js"></script>
+  <script src="features.js"></script>
+  <script src="wheel.js"></script>
 </body>
 </html>
