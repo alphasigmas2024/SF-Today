@@ -180,7 +180,10 @@ const evergreenCategories = {
   dinner: [
     { title: "El Farolito", desc: "World-famous, consistently great Mission-style burritos.", address: "2779 Mission St, San Francisco, CA", hours: "Open late — check current hours", tag: "local" },
     { title: "La Taqueria", desc: "A Mission classic, often ranked one of the best burritos in the city.", address: "2889 Mission St, San Francisco, CA", hours: "Check current hours", tag: "local" },
-    { title: "Good Mong Kok Bakery", desc: "Cheap, incredibly delicious pork buns to-go in Chinatown.", address: "1039 Stockton St, San Francisco, CA", hours: "Morning to early afternoon — check current hours", tag: "local" }
+    { title: "Good Mong Kok Bakery", desc: "Cheap, incredibly delicious pork buns to-go in Chinatown.", address: "1039 Stockton St, San Francisco, CA", hours: "Morning to early afternoon — check current hours", tag: "local" },
+    { title: "Tadich Grill", desc: "California's oldest continuously operating restaurant (since 1849) — classic seafood and a bar so long you can barely see the end.", address: "240 California St, San Francisco, CA", hours: "Lunch and dinner, closed Sundays — check current hours", tag: "touristy" },
+    { title: "House of Prime Rib", desc: "A Nob Hill institution since 1949 — prime rib carved tableside from stainless steel carts, essentially unchanged in decades.", address: "1906 Van Ness Ave, San Francisco, CA", hours: "Dinner only — check current hours", tag: "touristy" },
+    { title: "Tosca Cafe", desc: "A North Beach bar and restaurant since 1919, famous for its bourbon-and-chocolate 'house cappuccino' and Prohibition-era atmosphere.", address: "242 Columbus Ave, San Francisco, CA", hours: "Evenings, closed Mondays — check current hours", tag: "local" }
   ],
   family: [
     { title: "Exploratorium", desc: "Hands-on science museum on Pier 15 that kids and adults both love.", address: "Pier 15, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
@@ -202,10 +205,10 @@ const evergreenCategories = {
     { title: "Dolores Park", desc: "The ultimate Mission gathering spot for sunbathing and skyline views.", address: "Dolores St & 19th St, San Francisco, CA", hours: "6am – 10pm", tag: "local" },
     { title: "Crissy Field", desc: "Flat, scenic waterfront path from Fort Point to the Marina Green.", address: "1199 East Beach, San Francisco, CA", hours: "Open 24/7", tag: "local" }
   ],
-  dating: [
-    { title: "Conservatory of Flowers", desc: "Fairytale-like glass greenhouses filled with rare tropical plants.", address: "100 John F Kennedy Dr, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
-    { title: "Musée Mécanique", desc: "Nostalgic arcade at Fisherman's Wharf with vintage mechanical games.", address: "Pier 45, Shed A, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
-    { title: "Marshall's Beach", desc: "Secluded, romantic beach near the base of the Golden Gate Bridge.", address: "Marshall's Beach Trail, San Francisco, CA", hours: "Open 24/7", tag: "local" }
+  history: [
+    { title: "Angel Island Immigration Station", desc: "From 1910 to 1940, this was the West Coast's main immigration processing site — but unlike Ellis Island's hours-long process, Chinese immigrants detained here under the Chinese Exclusion Act of 1882 were often held for weeks, months, or occasionally years while their right to enter the country was interrogated. Poems carved into the barracks walls by detainees are still visible today.", address: "Angel Island Immigration Station, Angel Island State Park, San Francisco Bay, CA", hours: "Reachable by ferry from SF — check current ferry and museum hours", tag: "local" },
+    { title: "The Fillmore District (\"Harlem of the West\")", desc: "By the 1940s, the Fillmore was the center of San Francisco's Black community and West Coast jazz scene, home to over 180 Black-owned businesses. Starting in the 1960s, the city's Redevelopment Agency demolished much of the neighborhood under \"urban renewal,\" displacing tens of thousands of Black residents — many of whom were promised the right to return but never could. Large parts of the neighborhood sat vacant for decades afterward.", address: "Fillmore St & Geary Blvd, San Francisco, CA", hours: "Open 24/7 — a handful of jazz clubs and historic markers remain", tag: "local" },
+    { title: "Japantown & the Wartime Incarceration", desc: "San Francisco's Japantown was one of the largest Japanese American communities on the West Coast until February 1942, when Executive Order 9066 forced the removal and incarceration of Japanese Americans — regardless of citizenship — in inland camps for the rest of World War II. Many families permanently lost homes and businesses; the emptied neighborhood was resettled by other communities, including the Fillmore's growing Black population, while its Japanese American residents remained imprisoned.", address: "Japantown, Post St & Buchanan St, San Francisco, CA", hours: "Open 24/7", tag: "local" }
   ],
   transit: [
     { title: "Golden Rule of Parking", desc: "Never leave anything visible in your car in SF — not even a jacket.", address: "Citywide", hours: "N/A" },
@@ -275,22 +278,22 @@ const neighborhoods = {
 const activities = [
   { title: "Dim Sum & Shopping in Chinatown", desc: "Grab cheap pork buns and browse the shops on Grant Ave.", personas: ["teen", "tourist", "parent", "local"], budget: "low", time: "short", address: "Grant Ave, San Francisco, CA", hours: "Shops vary — generally 10am–7pm", vibe: "indoor", dogFriendly: false, tag: "local" },
   { title: "Golden Gate Park Mega-Day", desc: "Rent a boat at Stow Lake, visit the Academy of Sciences, and see the Bison.", personas: ["parent", "tourist"], budget: "high", time: "long", address: "Golden Gate Park, San Francisco, CA", hours: "Park open 24/7 — attraction hours vary", vibe: "outdoor", dogFriendly: false, tag: "touristy" },
-  { title: "Sunset at Dolores Park", desc: "Bring a blanket, grab ice cream, and watch the sunset over the city skyline.", personas: ["date", "teen", "local"], budget: "low", time: "short", address: "Dolores St & 19th St, San Francisco, CA", hours: "6am – 10pm", vibe: "outdoor", dogFriendly: true, tag: "local" },
+  { title: "Sunset at Dolores Park", desc: "Bring a blanket, grab ice cream, and watch the sunset over the city skyline.", personas: ["teen", "local"], budget: "low", time: "short", address: "Dolores St & 19th St, San Francisco, CA", hours: "6am – 10pm", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Free Museum Day & Ferry Building", desc: "Check out public art spaces, then take Muni to the Ferry Building.", personas: ["tourist", "parent"], budget: "free", time: "long", address: "1 Ferry Building, San Francisco, CA", hours: "Check current hours", vibe: "indoor", dogFriendly: false, tag: "touristy" },
-  { title: "Dinner & A Concert Night Out", desc: "Great local dining followed by live music at an intimate venue.", personas: ["date"], budget: "high", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific venue", vibe: "indoor", dogFriendly: false, tag: "local" },
-  { title: "Hike to the Labyrinth", desc: "Hike the Lands End trail to the secret rock labyrinth. Amazing bridge views.", personas: ["teen", "date", "local"], budget: "free", time: "short", address: "Lands End Trailhead, El Camino Del Mar, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
-  { title: "Crissy Field Bike & Beach Walk", desc: "Flat, scenic waterfront path with Golden Gate Bridge views the whole way.", personas: ["parent", "local", "date", "tourist"], budget: "free", time: "short", address: "1199 East Beach, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
-  { title: "Dog Walk & Coffee at Duboce Park", desc: "A small, friendly neighborhood dog park with a coffee shop right across the street.", personas: ["local", "date"], budget: "low", time: "short", address: "Duboce Park, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
-  { title: "Rainy Day Arcade at Musée Mécanique", desc: "Vintage mechanical arcade games at Fisherman's Wharf — a fun, cheap indoor escape.", personas: ["teen", "date", "tourist"], budget: "low", time: "short", address: "Pier 45, Shed A, San Francisco, CA", hours: "Check current hours", vibe: "indoor", dogFriendly: false, tag: "touristy" },
-  { title: "Bernal Hill Sunset Hike", desc: "An off-leash dog hill with 360° views and way fewer crowds than Twin Peaks.", personas: ["local", "date", "teen"], budget: "free", time: "short", address: "Bernal Heights Blvd, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
-  { title: "Fancy Tasting Menu Night", desc: "A splurge-worthy multi-course dinner — book ahead for weekend slots.", personas: ["date"], budget: "high", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific restaurant", vibe: "indoor", dogFriendly: false, tag: "local" },
+  { title: "Dinner & A Concert Night Out", desc: "Great local dining followed by live music at an intimate venue.", personas: ["local"], budget: "high", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific venue", vibe: "indoor", dogFriendly: false, tag: "local" },
+  { title: "Hike to the Labyrinth", desc: "Hike the Lands End trail to the secret rock labyrinth. Amazing bridge views.", personas: ["teen", "local"], budget: "free", time: "short", address: "Lands End Trailhead, El Camino Del Mar, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
+  { title: "Crissy Field Bike & Beach Walk", desc: "Flat, scenic waterfront path with Golden Gate Bridge views the whole way.", personas: ["parent", "local", "tourist"], budget: "free", time: "short", address: "1199 East Beach, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
+  { title: "Dog Walk & Coffee at Duboce Park", desc: "A small, friendly neighborhood dog park with a coffee shop right across the street.", personas: ["local"], budget: "low", time: "short", address: "Duboce Park, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
+  { title: "Rainy Day Arcade at Musée Mécanique", desc: "Vintage mechanical arcade games at Fisherman's Wharf — a fun, cheap indoor escape.", personas: ["teen", "tourist"], budget: "low", time: "short", address: "Pier 45, Shed A, San Francisco, CA", hours: "Check current hours", vibe: "indoor", dogFriendly: false, tag: "touristy" },
+  { title: "Bernal Hill Sunset Hike", desc: "An off-leash dog hill with 360° views and way fewer crowds than Twin Peaks.", personas: ["local", "teen"], budget: "free", time: "short", address: "Bernal Heights Blvd, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
+  { title: "Fancy Tasting Menu Night", desc: "A splurge-worthy multi-course dinner — book ahead for weekend slots.", personas: ["local"], budget: "high", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific restaurant", vibe: "indoor", dogFriendly: false, tag: "local" },
   { title: "Exploratorium Rainy Day", desc: "Hands-on science museum on Pier 15 — a great full-day indoor plan when the fog rolls in.", personas: ["parent", "teen", "tourist"], budget: "high", time: "long", address: "Pier 15, San Francisco, CA", hours: "Check current hours", vibe: "indoor", dogFriendly: false, tag: "touristy" },
   { title: "Cable Car Hop & Chinatown Walk", desc: "Ride a historic cable car, then wander Chinatown's alleys and shops.", personas: ["tourist", "teen"], budget: "low", time: "short", address: "Powell St Cable Car Turnaround, San Francisco, CA", hours: "Check current hours", vibe: "outdoor", dogFriendly: false, tag: "touristy" },
   { title: "Local's Day Off: Ocean Beach & Thrift Shopping", desc: "A windswept beach walk followed by browsing Outer Sunset's thrift and vintage shops.", personas: ["local"], budget: "free", time: "long", address: "Great Highway, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Family Picnic at Marina Green", desc: "Wide waterfront lawn with kite-flying, joggers, and Golden Gate Bridge views.", personas: ["parent", "local"], budget: "free", time: "short", address: "Marina Green Dr, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
-  { title: "Rainy Day Bookstore Crawl", desc: "Hop between a few of the city's best independent bookstores, coffee in hand.", personas: ["local", "date", "teen"], budget: "free", time: "short", address: "Clement St, San Francisco, CA", hours: "Shops vary", vibe: "indoor", dogFriendly: false, tag: "local" },
-  { title: "Big Night Out: SOMA Bar Hop", desc: "A proper night out across a few of SOMA's best bars and lounges.", personas: ["date", "local"], budget: "high", time: "long", address: "SOMA, San Francisco, CA", hours: "Evenings — check specific venues", vibe: "indoor", dogFriendly: false, tag: "local" },
-  { title: "Twin Peaks Sunset Walk", desc: "Sweeping 360° views from the geographic center of the city — best at golden hour.", personas: ["tourist", "date", "local"], budget: "free", time: "short", address: "Twin Peaks Blvd, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "touristy" }
+  { title: "Rainy Day Bookstore Crawl", desc: "Hop between a few of the city's best independent bookstores, coffee in hand.", personas: ["local", "teen"], budget: "free", time: "short", address: "Clement St, San Francisco, CA", hours: "Shops vary", vibe: "indoor", dogFriendly: false, tag: "local" },
+  { title: "Big Night Out: SOMA Bar Hop", desc: "A proper night out across a few of SOMA's best bars and lounges.", personas: ["local"], budget: "high", time: "long", address: "SOMA, San Francisco, CA", hours: "Evenings — check specific venues", vibe: "indoor", dogFriendly: false, tag: "local" },
+  { title: "Twin Peaks Sunset Walk", desc: "Sweeping 360° views from the geographic center of the city — best at golden hour.", personas: ["tourist", "local"], budget: "free", time: "short", address: "Twin Peaks Blvd, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "touristy" }
 ];
 
 
@@ -759,6 +762,146 @@ const spotPuzzles = [
       "A fire destroyed it in the late 1960s, and it was never rebuilt.",
       "It sits right next to the Cliff House, at the northwest edge of the city.",
       "At low tide, you can still walk through the old tunnels and tide pools."
+    ]
+  },
+  {
+    acceptableAnswers: ["golden gate bridge"],
+    clues: [
+      "It's not actually the color its name suggests.",
+      "The color was chosen partly because it shows up well in the fog.",
+      "It opened in 1937, and was the longest suspension bridge in the world at the time.",
+      "You can walk or bike across it for free, connecting the city to Marin County.",
+      "It's painted 'International Orange' — a name almost as famous as the bridge itself."
+    ]
+  },
+  {
+    acceptableAnswers: ["alcatraz", "alcatraz island"],
+    clues: [
+      "No one has ever officially escaped and been proven to survive.",
+      "Its name comes from a Spanish word for a type of seabird.",
+      "It operated as a federal prison from 1934 to 1963, holding some of the country's most notorious inmates.",
+      "You need to book a ferry ticket, ideally days in advance, to visit.",
+      "Al Capone was one of its most famous residents."
+    ]
+  },
+  {
+    acceptableAnswers: ["painted ladies", "the painted ladies", "postcard row"],
+    clues: [
+      "You've probably seen them in the opening credits of a 90s sitcom.",
+      "They're a row of Victorian houses, each painted in three or more contrasting colors.",
+      "A city skyline rises dramatically behind them, which is why photographers love this spot.",
+      "They face a square named after a fort that once guarded the bay.",
+      "They sit across from Alamo Square Park."
+    ]
+  },
+  {
+    acceptableAnswers: ["coit tower"],
+    clues: [
+      "It was funded by a woman obsessed with firefighters after they saved her life as a child.",
+      "Inside, it's covered in Depression-era murals painted by dozens of local artists.",
+      "Some people think its shape resembles a fire hose nozzle, though that wasn't the intent.",
+      "It sits atop Telegraph Hill, with sweeping views of the bay.",
+      "Wild parrots are often seen — and heard — flying around it."
+    ]
+  },
+  {
+    acceptableAnswers: ["palace of fine arts"],
+    clues: [
+      "It was built for a world's fair and was never meant to be permanent.",
+      "Its dome and columns are Greco-Roman in style, though it's less than 120 years old.",
+      "It sits beside a peaceful lagoon that's popular with photographers and swans.",
+      "It was fully rebuilt in the 1960s after the original, temporary structure began crumbling.",
+      "It's in the Marina District, near Crissy Field."
+    ]
+  },
+  {
+    acceptableAnswers: ["ferry building", "the ferry building"],
+    clues: [
+      "Its clock tower survived a massive earthquake almost untouched.",
+      "It used to serve 50,000 commuters a day before the bridges were built.",
+      "Today it's better known for its farmers market and gourmet food hall than for actual ferries.",
+      "It sits at the foot of Market Street, right on the Embarcadero.",
+      "You can still catch a real ferry from right outside it."
+    ]
+  },
+  {
+    acceptableAnswers: ["ghirardelli square"],
+    clues: [
+      "A giant illuminated sign spelling out a brand name sits atop it, visible for miles.",
+      "It used to be a chocolate and spice factory, not a shopping center.",
+      "You can still get a sundae made on the premises.",
+      "It's a short walk from Fisherman's Wharf, near the cable car turnaround.",
+      "The chocolate brand it's named after still has a shop inside."
+    ]
+  },
+  {
+    acceptableAnswers: ["mission dolores", "mission san francisco de asis"],
+    clues: [
+      "It's the oldest surviving structure in San Francisco.",
+      "It predates the city's founding — construction finished in 1791.",
+      "It gave its name to the neighborhood, the park, and the street that all share its name.",
+      "Its adjoining cemetery holds some of the earliest non-Native burials in the city.",
+      "It sits just blocks from the park where locals gather for sunset."
+    ]
+  },
+  {
+    acceptableAnswers: ["twin peaks"],
+    clues: [
+      "Locals debate whether it's better at sunset or for the fog rolling in.",
+      "It's the second-highest point in the city, and one of the windiest.",
+      "There's no charge to drive or hike to the top.",
+      "Its two summits give the spot its name.",
+      "It sits at the geographic center of San Francisco, with 360° views."
+    ]
+  },
+  {
+    acceptableAnswers: ["16th avenue tiled steps", "tiled steps", "the tiled steps"],
+    clues: [
+      "It took two neighbors, over a thousand donated tiles, and about 15 years to finish.",
+      "The design mimics a mosaic path rising from the ocean to the stars.",
+      "It's a residential staircase, not an official city landmark or museum.",
+      "It climbs a steep hill in the Sunset District, blocks from Golden Gate Park.",
+      "It sits at 16th Avenue and Moraga Street."
+    ]
+  },
+  {
+    acceptableAnswers: ["japanese tea garden"],
+    clues: [
+      "It predates the park's zoo, museums, and most of its other attractions.",
+      "It was built for an 1894 exposition and never removed.",
+      "Its original caretaker family was forced to leave during WWII incarceration and never got it back.",
+      "It's the oldest public Japanese garden in the country.",
+      "It sits inside Golden Gate Park, complete with a koi pond and pagoda."
+    ]
+  },
+  {
+    acceptableAnswers: ["powell street cable car turnaround", "cable car turnaround"],
+    clues: [
+      "There's no engine here — it's entirely human-powered.",
+      "Workers physically rotate the car on a turntable by hand at the end of the line.",
+      "It's usually one of the most crowded single spots in the city for tourists.",
+      "It sits where Powell Street meets Market Street.",
+      "It's the southern terminus of two of the city's three remaining cable car lines."
+    ]
+  },
+  {
+    acceptableAnswers: ["musee mecanique"],
+    clues: [
+      "Admission is free, but bring quarters if you actually want to play anything.",
+      "Its oldest machines date back over a century, including a mechanical fortune teller.",
+      "It's one of the largest privately-owned collections of coin-operated machines in the world.",
+      "It moved here after its original Cliff House location was affected by a fire.",
+      "It sits at Pier 45, near Fisherman's Wharf."
+    ]
+  },
+  {
+    acceptableAnswers: ["grace cathedral"],
+    clues: [
+      "Its front doors are exact replicas of a set in Florence, Italy.",
+      "You can walk a labyrinth on its floor, modeled after one in a French cathedral.",
+      "It took over 50 years to fully complete, finishing in the 1960s.",
+      "It hosts a famous yoga night with music, open to all faiths and none.",
+      "It sits atop Nob Hill, one of the city's steepest and most storied hills."
     ]
   }
 ];
@@ -1814,7 +1957,7 @@ const WHEEL_SEGMENTS = [
   { key: 'eat', label: 'Eat', emoji: '🍜' },
   { key: 'free', label: 'Free Thing', emoji: '💰' },
   { key: 'outdoor', label: 'Outdoor', emoji: '☀️' },
-  { key: 'date', label: 'Date Idea', emoji: '❤️' },
+  { key: 'history', label: 'History', emoji: '📜' },
   { key: 'gem', label: 'Hidden Gem', emoji: '⭐' },
   { key: 'neighborhood', label: 'Neighborhood', emoji: '🧭' },
   { key: 'sight', label: 'Sight', emoji: '🌉' },
@@ -1905,7 +2048,7 @@ function pickWheelItem(segmentKey) {
     case 'eat': list = evergreenCategories.dinner; break;
     case 'free': list = evergreenCategories.free; break;
     case 'outdoor': list = evergreenCategories.outdoors; break;
-    case 'date': list = evergreenCategories.dating; break;
+    case 'history': list = evergreenCategories.history; break;
     case 'sight': list = evergreenCategories.visit; break;
     case 'gem': list = localFavorites; break;
     case 'neighborhood': {
@@ -1972,8 +2115,70 @@ function wheelRestingRotation(centerAngle) {
   return 360 - centerAngle;
 }
 
-(function initWheel() {
-  const wheelGroup = buildWheelSVG();
+// --- Live countdown to San Francisco's actual next midnight ---
+// (Not UTC, not the visitor's own timezone — real SF time, same fix as the
+// rest of the site's daily-reset logic.)
+function getSFUTCOffsetMinutes(date = new Date()) {
+  const utcAsLocal = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }));
+  const sfAsLocal = new Date(date.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  return Math.round((utcAsLocal - sfAsLocal) / 60000);
+}
+
+function getNextSFMidnightTimestamp() {
+  const now = new Date();
+  const offsetMinutes = getSFUTCOffsetMinutes(now);
+  const [y, m, d] = sfDateStamp(now).split('-').map(Number);
+  const utcMidnightOfNextSFDate = Date.UTC(y, m - 1, d + 1, 0, 0, 0);
+  return utcMidnightOfNextSFDate + offsetMinutes * 60000;
+}
+
+function formatWheelCountdown(ms) {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const h = Math.floor(totalSeconds / 3600);
+  const m = Math.floor((totalSeconds % 3600) / 60);
+  const s = totalSeconds % 60;
+  return `${h}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+}
+
+let wheelCountdownInterval = null;
+
+function startWheelCountdown() {
+  const statusEl = document.getElementById('wheel-status');
+  if (!statusEl) return;
+  if (wheelCountdownInterval) clearInterval(wheelCountdownInterval);
+
+  const target = getNextSFMidnightTimestamp();
+
+  function tick() {
+    const remaining = target - Date.now();
+    if (remaining <= 0) {
+      clearInterval(wheelCountdownInterval);
+      resetWheelForNewDay();
+      return;
+    }
+    statusEl.textContent = `⏳ Next spin unlocks in ${formatWheelCountdown(remaining)}`;
+  }
+
+  tick();
+  wheelCountdownInterval = setInterval(tick, 1000);
+}
+
+function resetWheelForNewDay() {
+  const wheelGroup = document.getElementById('wheel-rotate-group');
+  const resultEl = document.getElementById('wheel-result');
+  if (!wheelGroup) return;
+
+  wheelGroup.style.transition = 'none';
+  wheelGroup.style.transform = 'rotate(0deg)';
+  if (resultEl) {
+    resultEl.classList.add('hidden');
+    resultEl.innerHTML = '';
+  }
+  setupWheelForToday();
+}
+
+function setupWheelForToday() {
+  const wheelGroup = document.getElementById('wheel-rotate-group');
   const spinBtn = document.getElementById('wheel-spin-btn');
   const statusEl = document.getElementById('wheel-status');
   if (!wheelGroup || !spinBtn || !statusEl) return;
@@ -1987,13 +2192,23 @@ function wheelRestingRotation(centerAngle) {
     wheelGroup.style.transition = 'none';
     wheelGroup.style.transform = `rotate(${wheelRestingRotation(centerAngle)}deg)`;
     renderWheelResult(winningSegment);
-    statusEl.textContent = "You've already spun today — come back tomorrow for a new one!";
     spinBtn.disabled = true;
     spinBtn.textContent = 'Come Back Tomorrow';
+    startWheelCountdown();
     return;
   }
 
-  spinBtn.addEventListener('click', function() {
+  if (wheelCountdownInterval) {
+    clearInterval(wheelCountdownInterval);
+    wheelCountdownInterval = null;
+  }
+  spinBtn.disabled = false;
+  spinBtn.textContent = 'Spin the Wheel';
+  statusEl.textContent = '';
+
+  // Using .onclick (not addEventListener) so re-running this at midnight
+  // replaces the old handler cleanly instead of stacking duplicates.
+  spinBtn.onclick = function() {
     spinBtn.disabled = true;
     statusEl.textContent = 'Spinning...';
 
@@ -2010,8 +2225,14 @@ function wheelRestingRotation(centerAngle) {
       markWheelSpunToday();
       renderWheelResult(winningSegment);
       if (typeof launchConfetti === 'function') launchConfetti();
-      statusEl.textContent = "That's today's spin — come back tomorrow for a new one!";
       spinBtn.textContent = 'Come Back Tomorrow';
+      startWheelCountdown();
     }, 3500);
-  });
+  };
+}
+
+(function initWheel() {
+  const wheelGroup = buildWheelSVG();
+  if (!wheelGroup) return;
+  setupWheelForToday();
 })();
