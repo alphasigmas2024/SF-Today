@@ -1394,6 +1394,15 @@ footer p + p {
   margin: 0 0 0.25rem 0;
 }
 
+#wheel-status {
+  text-align: center;
+  font-style: normal;
+  font-family: monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
 #wheel-result .plan-item {
   border-left-color: var(--accent);
 }
