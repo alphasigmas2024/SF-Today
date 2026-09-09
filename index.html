@@ -227,7 +227,7 @@
         <div id="weather-widget" class="skeleton-text">Loading weather...</div>
         <div class="header-btn-row">
           <button id="search-open-btn" class="dark-toggle" aria-label="Search the site" title="Search (press /)">🔍</button>
-          <button id="checklist-open-btn" class="dark-toggle" aria-label="My SF Checklist" title="My SF Checklist">🗺️ <span id="checklist-progress-label">0/0</span></button>
+          <button id="checklist-open-btn" class="dark-toggle" aria-label="My SF Checklist" title="My SF Checklist">🗺️<span id="checklist-progress-label">0/0</span></button>
           <button id="dark-mode-toggle" class="dark-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
         </div>
       </div>
@@ -240,10 +240,9 @@
       <a href="#section-plan">Plan</a>
       <a href="#section-sweeping">Sweeping</a>
       <a href="#section-muni">Muni</a>
-      <a href="#section-sunset">Sunset & Fog</a>
-      <a href="#section-essentials">Essentials</a>
+      <a href="#section-sunset">Sunset</a>
       <a href="#section-weekly">This Week</a>
-      <a href="#section-neighborhoods">Neighborhoods</a>
+      <a href="#section-neighborhoods">Areas</a>
       <a href="#section-guides">Guides</a>
       <a href="#section-wheel">Wheel</a>
       <a href="#section-game">Game</a>
@@ -252,22 +251,6 @@
   </nav>
 
   <main id="main-content">
-    <!-- TODAY AT A GLANCE — a compact dashboard summarizing live conditions -->
-    <section class="glance-strip" aria-label="Today at a glance">
-      <div class="glance-card">
-        <span class="glance-label">Weather</span>
-        <span id="glance-weather" class="glance-value skeleton-text">Loading…</span>
-      </div>
-      <div class="glance-card">
-        <span class="glance-label">Sunset</span>
-        <span id="glance-sunset" class="glance-value skeleton-text">Loading…</span>
-      </div>
-      <div class="glance-card">
-        <span class="glance-label">Fog</span>
-        <span id="glance-fog" class="glance-value skeleton-text">Loading…</span>
-      </div>
-    </section>
-
     <!-- Centered in the white space right above the planner box -->
     <div class="badge-container">
       <a href="release-notes.html" class="whats-new-badge">
@@ -382,37 +365,6 @@
       </div>
     </section>
 
-    <!-- SF ESSENTIALS: PRACTICAL INFO EVERY GUIDE SHOULD HAVE -->
-    <section class="tool-box" id="section-essentials">
-      <h2>📋 SF Essentials</h2>
-      <p class="tool-subtitle">The practical numbers and norms that don't fit neatly anywhere else.</p>
-      <div class="essentials-grid">
-        <div class="essential-item">
-          <strong>Non-Emergency Police</strong>
-          <span>(415) 553-0123</span>
-        </div>
-        <div class="essential-item">
-          <strong>City Services (311)</strong>
-          <span>311, or (415) 701-2311 from outside SF</span>
-        </div>
-        <div class="essential-item">
-          <strong>Transit Payment</strong>
-          <span>Clipper card or the Clipper app — works on Muni, BART, and most Bay Area transit</span>
-        </div>
-        <div class="essential-item">
-          <strong>Parking Meters</strong>
-          <span>The SFMTA Pay by Phone app, or coins/card at the meter</span>
-        </div>
-        <div class="essential-item">
-          <strong>Car Break-Ins</strong>
-          <span>Common citywide — never leave anything visible in a parked car, not even an empty bag</span>
-        </div>
-        <div class="essential-item">
-          <strong>Rideshare & Taxis</strong>
-          <span>Uber and Lyft both operate citywide; Flywheel is a well-known local taxi app</span>
-        </div>
-      </div>
-    </section>
 
     <!-- THIS WEEK IN SF - RECURRING WEEKLY EVENTS FEED -->
     <section class="weekly-events-box" id="section-weekly">
