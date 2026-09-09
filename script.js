@@ -188,22 +188,42 @@ const evergreenCategories = {
   family: [
     { title: "Exploratorium", desc: "Hands-on science museum on Pier 15 that kids and adults both love.", address: "Pier 15, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
     { title: "California Academy of Sciences", desc: "Aquarium, planetarium, and a 4-story rainforest inside Golden Gate Park.", address: "55 Music Concourse Dr, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
-    { title: "Golden Gate Park Carousel", desc: "Historic 1914 carousel with hand-carved animals next to the playground.", address: "320 Bowling Green Dr, San Francisco, CA", hours: "Check current hours", tag: "local" }
+    { title: "Golden Gate Park Carousel", desc: "Historic 1914 carousel with hand-carved animals next to the playground.", address: "320 Bowling Green Dr, San Francisco, CA", hours: "Check current hours", tag: "local" },
+    { title: "Aquarium of the Bay", desc: "Walk through underwater tunnels surrounded by sharks and rays, right on Pier 39.", address: "Pier 39, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
+    { title: "San Francisco Zoo", desc: "A full-size zoo on the city's western edge, right by Ocean Beach.", address: "Sloat Blvd & Great Highway, San Francisco, CA", hours: "Check current hours", tag: "local" },
+    { title: "Musée Mécanique", desc: "A free-to-enter, coin-operated arcade museum with century-old mechanical games at Fisherman's Wharf.", address: "Pier 45, Shed A, San Francisco, CA", hours: "Check current hours", tag: "touristy" }
   ],
   free: [
     { title: "Palace of Fine Arts", desc: "Stunning Greco-Roman rotunda and peaceful lagoon.", address: "3601 Lyon St, San Francisco, CA", hours: "Open 24/7 (grounds)", tag: "touristy" },
     { title: "Golden Gate Bridge Walk", desc: "Walk or bike across the iconic orange span, completely free.", address: "Golden Gate Bridge Welcome Center, San Francisco, CA", hours: "Open 24/7 (pedestrian access varies by season)", tag: "touristy" },
-    { title: "Cable Car Museum", desc: "See the powerhouse and museum where the historic cable cars operate.", address: "1201 Mason St, San Francisco, CA", hours: "Check current hours", tag: "local" }
+    { title: "Cable Car Museum", desc: "See the powerhouse and museum where the historic cable cars operate.", address: "1201 Mason St, San Francisco, CA", hours: "Check current hours", tag: "local" },
+    { title: "Baker Beach", desc: "A mile-long beach with one of the best straight-on views of the Golden Gate Bridge, especially at sunset.", address: "Baker Beach, San Francisco, CA", hours: "Open 24/7", tag: "local" },
+    { title: "Pier 39 Sea Lions", desc: "Watch dozens of wild sea lions lounge and bark on the docks — they showed up uninvited after the 1989 earthquake and never left.", address: "Pier 39, San Francisco, CA", hours: "Open 24/7 to view, best in daylight", tag: "touristy" },
+    { title: "Buena Vista Park", desc: "San Francisco's oldest official park — a steep, wooded hillside with better skyline views than most tourist spots, and a fraction of the crowds.", address: "Buena Vista Ave, San Francisco, CA", hours: "Open 24/7", tag: "local" },
+    { title: "City Lights Bookstore", desc: "The legendary Beat Generation bookstore, still independent, still free to browse for hours.", address: "261 Columbus Ave, San Francisco, CA", hours: "Check current hours", tag: "local" },
+    { title: "Golden Gate Fortune Cookie Factory", desc: "A tiny, working fortune cookie factory in Chinatown — watch them get folded by hand and try a free sample.", address: "56 Ross Alley, San Francisco, CA", hours: "Check current hours", tag: "local" },
+    { title: "Golden Gate Park Bison Paddock", desc: "A real herd of American bison has lived in Golden Gate Park since the 1890s — free to visit, no zoo ticket required.", address: "Golden Gate Park Bison Paddock, San Francisco, CA", hours: "Open 24/7 (viewing hours vary by daylight)", tag: "local" }
   ],
   visit: [
     { title: "Alcatraz Island", desc: "The legendary former federal prison — book ferry tickets in advance.", address: "Pier 33, San Francisco, CA", hours: "Ferry departure times vary — check current schedule", tag: "touristy" },
     { title: "Twin Peaks", desc: "Sweeping 360° views from the geographic center of SF.", address: "Twin Peaks Blvd, San Francisco, CA", hours: "Open 24/7", tag: "touristy" },
-    { title: "Lombard Street", desc: "The famous 'crookedest street in the world,' lined with hydrangeas.", address: "Lombard St & Hyde St, San Francisco, CA", hours: "Open 24/7", tag: "touristy" }
+    { title: "Lombard Street", desc: "The famous 'crookedest street in the world,' lined with hydrangeas.", address: "Lombard St & Hyde St, San Francisco, CA", hours: "Open 24/7", tag: "touristy" },
+    { title: "Golden Gate Park", desc: "Over 1,000 acres of gardens, trails, lakes, and museums — bigger than Central Park, and free to wander.", address: "Golden Gate Park, San Francisco, CA", hours: "Open 24/7 (attraction hours vary)", tag: "touristy" },
+    { title: "Walt Disney Family Museum", desc: "A museum in the Presidio dedicated to Walt Disney's life and work, told through his family's own archives.", address: "104 Montgomery St, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
+    { title: "Ferry Building", desc: "A restored 1898 transit hub turned gourmet marketplace, with its clock tower visible from across downtown.", address: "1 Ferry Building, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
+    { title: "Legion of Honor", desc: "A fine arts museum in a Beaux-Arts building on a clifftop, with a permanent Rodin collection and sweeping ocean views.", address: "100 34th Ave, San Francisco, CA", hours: "Check current hours", tag: "touristy" }
   ],
   outdoors: [
     { title: "Lands End Trail", desc: "Coastal hike with cypress trees, ocean views, and a hidden stone labyrinth.", address: "Lands End Trailhead, El Camino Del Mar, San Francisco, CA", hours: "Open 24/7", tag: "local" },
     { title: "Dolores Park", desc: "The ultimate Mission gathering spot for sunbathing and skyline views.", address: "Dolores St & 19th St, San Francisco, CA", hours: "6am – 10pm", tag: "local" },
-    { title: "Crissy Field", desc: "Flat, scenic waterfront path from Fort Point to the Marina Green.", address: "1199 East Beach, San Francisco, CA", hours: "Open 24/7", tag: "local" }
+    { title: "Crissy Field", desc: "Flat, scenic waterfront path from Fort Point to the Marina Green.", address: "1199 East Beach, San Francisco, CA", hours: "Open 24/7", tag: "local" },
+    { title: "San Francisco Botanical Garden", desc: "Over 9,000 plant species from around the world, including a genuinely peaceful redwood grove, inside Golden Gate Park.", address: "1199 9th Ave, San Francisco, CA", hours: "Check current hours", tag: "local" },
+    { title: "Japanese Tea Garden", desc: "The oldest public Japanese garden in the US, with koi ponds, a pagoda, and a teahouse, inside Golden Gate Park.", address: "75 Hagiwara Tea Garden Dr, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
+    { title: "Stow Lake", desc: "Rent a rowboat or just walk the loop around this artificial lake with a waterfall and a small island, inside Golden Gate Park.", address: "Stow Lake Dr, San Francisco, CA", hours: "Open 24/7 (boat rentals have set hours)", tag: "local" },
+    { title: "Presidio Tunnel Tops", desc: "A newer park with wide lawns, overlooks, and trails on top of a former highway tunnel, with Golden Gate Bridge views.", address: "Presidio Tunnel Tops, San Francisco, CA", hours: "Open 24/7", tag: "local" },
+    { title: "Conservatory of Flowers", desc: "A fairytale-like Victorian glasshouse in Golden Gate Park, filled with rare tropical plants.", address: "100 John F Kennedy Dr, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
+    { title: "Marshall's Beach", desc: "A secluded beach with one of the best close-up views of the Golden Gate Bridge, reached by a short, steep trail.", address: "Marshall's Beach Trail, San Francisco, CA", hours: "Open 24/7", tag: "local" },
+    { title: "Angel Island State Park", desc: "A short ferry ride from the city, with hiking and biking trails circling the whole island and sweeping bay views.", address: "Angel Island State Park, San Francisco Bay, CA", hours: "Reachable by ferry — check current schedule", tag: "local" }
   ],
   history: [
     { title: "Angel Island Immigration Station", desc: "From 1910 to 1940, this was the West Coast's main immigration processing site — but unlike Ellis Island's hours-long process, Chinese immigrants detained here under the Chinese Exclusion Act of 1882 were often held for weeks, months, or occasionally years while their right to enter the country was interrogated. Poems carved into the barracks walls by detainees are still visible today.", address: "Angel Island Immigration Station, Angel Island State Park, San Francisco Bay, CA", hours: "Reachable by ferry from SF — check current ferry and museum hours", tag: "local" },
@@ -231,7 +251,8 @@ const neighborhoods = {
   ],
   marina: [
     { title: "Marina Green", desc: "A wide waterfront lawn packed with joggers, kite-flyers, and Golden Gate Bridge views.", address: "Marina Green Dr, San Francisco, CA", hours: "Open 24/7", tag: "local" },
-    { title: "Fillmore Street", desc: "A boutique-lined shopping corridor running through Pacific Heights.", address: "Fillmore St & Sacramento St, San Francisco, CA", hours: "Shops vary — generally 10am–7pm", tag: "local" }
+    { title: "Fillmore Street", desc: "A boutique-lined shopping corridor running through Pacific Heights.", address: "Fillmore St & Sacramento St, San Francisco, CA", hours: "Shops vary — generally 10am–7pm", tag: "local" },
+    { title: "Fort Mason Center", desc: "A former Army post turned arts and culture campus, with galleries, a theater, and bay views.", address: "Fort Mason, San Francisco, CA", hours: "Grounds open 24/7 — venue hours vary", tag: "local" }
   ],
   telegraphrussian: [
     { title: "Coit Tower", desc: "An Art Deco tower atop Telegraph Hill with panoramic city and bay views.", address: "1 Telegraph Hill Blvd, San Francisco, CA", hours: "Check current hours", tag: "touristy" },
@@ -243,11 +264,13 @@ const neighborhoods = {
   ],
   haight: [
     { title: "Haight-Ashbury", desc: "The iconic intersection at the heart of 1967's Summer of Love, still full of vintage shops.", address: "Haight St & Ashbury St, San Francisco, CA", hours: "Shops vary", tag: "touristy" },
-    { title: "Alamo Square", desc: "Home to the 'Painted Ladies' — the postcard row of Victorian houses with the skyline behind them.", address: "Alamo Square, Steiner St & Hayes St, San Francisco, CA", hours: "Open 24/7", tag: "touristy" }
+    { title: "Alamo Square", desc: "Home to the 'Painted Ladies' — the postcard row of Victorian houses with the skyline behind them.", address: "Alamo Square, Steiner St & Hayes St, San Francisco, CA", hours: "Open 24/7", tag: "touristy" },
+    { title: "The Panhandle", desc: "A narrow strip of park connecting the Haight to Golden Gate Park proper — locals walk dogs, jog, and hang out here.", address: "The Panhandle, San Francisco, CA", hours: "Open 24/7", tag: "local" }
   ],
   soma: [
     { title: "Oracle Park", desc: "The Giants' waterfront ballpark, with one of the best views in baseball from McCovey Cove.", address: "24 Willie Mays Plaza, San Francisco, CA", hours: "Game days — check current schedule", tag: "local" },
-    { title: "Chase Center", desc: "The Warriors' home arena in Mission Bay, hosting games and major concerts.", address: "1 Warriors Way, San Francisco, CA", hours: "Event days — check current schedule", tag: "local" }
+    { title: "Chase Center", desc: "The Warriors' home arena in Mission Bay, hosting games and major concerts.", address: "1 Warriors Way, San Francisco, CA", hours: "Event days — check current schedule", tag: "local" },
+    { title: "Yerba Buena Gardens", desc: "A green rooftop park above the Moscone Center, with a waterfall memorial to Martin Luther King Jr. and a carousel.", address: "750 Howard St, San Francisco, CA", hours: "Open 24/7", tag: "local" }
   ],
   westportal: [
     { title: "West Portal Avenue", desc: "A small-town-feel shopping strip where the Muni Metro tunnel surfaces above ground.", address: "West Portal Ave, San Francisco, CA", hours: "Shops vary", tag: "local" },
@@ -255,11 +278,13 @@ const neighborhoods = {
   ],
   bayview: [
     { title: "Bayview Opera House", desc: "A historic community arts venue and one of the oldest theaters in the city.", address: "4705 3rd St, San Francisco, CA", hours: "Check current hours", tag: "local" },
-    { title: "Candlestick Point", desc: "A waterfront state recreation area with fishing, picnic spots, and bay views.", address: "Carroll Ave, San Francisco, CA", hours: "Open 24/7", tag: "local" }
+    { title: "Candlestick Point", desc: "A waterfront state recreation area with fishing, picnic spots, and bay views.", address: "Carroll Ave, San Francisco, CA", hours: "Open 24/7", tag: "local" },
+    { title: "Heron's Head Park", desc: "A quiet, little-visited waterfront park built on a former shipping pier — one of the city's best spots for birdwatching.", address: "Heron's Head Park, San Francisco, CA", hours: "Open 24/7", tag: "local" }
   ],
   castronoe: [
     { title: "Castro Theatre", desc: "A restored 1922 movie palace and the beating heart of the Castro's community and culture.", address: "429 Castro St, San Francisco, CA", hours: "Check current hours", tag: "local" },
-    { title: "24th Street, Noe Valley", desc: "A quiet, stroller-friendly shopping strip with cafes, boutiques, and a real small-town feel.", address: "24th St & Castro St, San Francisco, CA", hours: "Shops vary", tag: "local" }
+    { title: "24th Street, Noe Valley", desc: "A quiet, stroller-friendly shopping strip with cafes, boutiques, and a real small-town feel.", address: "24th St & Castro St, San Francisco, CA", hours: "Shops vary", tag: "local" },
+    { title: "GLBT Historical Society Museum", desc: "A small museum dedicated to LGBTQ+ history, a block from the Castro's famous intersection.", address: "4127 18th St, San Francisco, CA", hours: "Check current hours", tag: "local" }
   ],
   excelsior: [
     { title: "McLaren Park", desc: "One of SF's largest parks, with trails, a lake, and an amphitheater — far quieter than Golden Gate Park.", address: "50 John F Shelley Dr, San Francisco, CA", hours: "Open 24/7", tag: "local" },
@@ -267,7 +292,8 @@ const neighborhoods = {
   ],
   missionbernal: [
     { title: "Clarion Alley Mural Project", desc: "A full alley of ever-changing, politically charged street murals by local artists.", address: "Clarion Alley, San Francisco, CA", hours: "Open 24/7", tag: "local" },
-    { title: "Bernal Heights Park", desc: "Locals just call it 'Bernal Hill' — an off-leash dog hill with 360° views and way fewer crowds than Twin Peaks.", address: "Bernal Heights Blvd, San Francisco, CA", hours: "Open 24/7", tag: "local" }
+    { title: "Bernal Heights Park", desc: "Locals just call it 'Bernal Hill' — an off-leash dog hill with 360° views and way fewer crowds than Twin Peaks.", address: "Bernal Heights Blvd, San Francisco, CA", hours: "Open 24/7", tag: "local" },
+    { title: "Balmy Alley", desc: "The Mission's original mural alley, painted and repainted since the 1970s — Clarion Alley's older, quieter sibling.", address: "Balmy Alley, San Francisco, CA", hours: "Open 24/7", tag: "local" }
   ]
 };
 
@@ -276,19 +302,19 @@ const neighborhoods = {
 // vibe: "outdoor" | "indoor" | "either" (works for either filter state)
 // dogFriendly: true if this is a reasonable spot to bring a dog
 const activities = [
-  { title: "Dim Sum & Shopping in Chinatown", desc: "Grab cheap pork buns and browse the shops on Grant Ave.", personas: ["teen", "tourist", "parent", "local"], budget: "low", time: "short", address: "Grant Ave, San Francisco, CA", hours: "Shops vary — generally 10am–7pm", vibe: "indoor", dogFriendly: false, tag: "local" },
+  { title: "Dim Sum & Shopping in Chinatown", desc: "Grab cheap pork buns and browse the shops on Grant Ave.", personas: ["teen", "tourist", "parent", "local"], budget: "mid", time: "short", address: "Grant Ave, San Francisco, CA", hours: "Shops vary — generally 10am–7pm", vibe: "indoor", dogFriendly: false, tag: "local" },
   { title: "Golden Gate Park Mega-Day", desc: "Rent a boat at Stow Lake, visit the Academy of Sciences, and see the Bison.", personas: ["parent", "tourist"], budget: "high", time: "long", address: "Golden Gate Park, San Francisco, CA", hours: "Park open 24/7 — attraction hours vary", vibe: "outdoor", dogFriendly: false, tag: "touristy" },
   { title: "Sunset at Dolores Park", desc: "Bring a blanket, grab ice cream, and watch the sunset over the city skyline.", personas: ["teen", "local"], budget: "low", time: "short", address: "Dolores St & 19th St, San Francisco, CA", hours: "6am – 10pm", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Free Museum Day & Ferry Building", desc: "Check out public art spaces, then take Muni to the Ferry Building.", personas: ["tourist", "parent"], budget: "free", time: "long", address: "1 Ferry Building, San Francisco, CA", hours: "Check current hours", vibe: "indoor", dogFriendly: false, tag: "touristy" },
-  { title: "Dinner & A Concert Night Out", desc: "Great local dining followed by live music at an intimate venue.", personas: ["local"], budget: "high", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific venue", vibe: "indoor", dogFriendly: false, tag: "local" },
+  { title: "Dinner & A Concert Night Out", desc: "Great local dining followed by live music at an intimate venue.", personas: ["local"], budget: "splurge", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific venue", vibe: "indoor", dogFriendly: false, tag: "local" },
   { title: "Hike to the Labyrinth", desc: "Hike the Lands End trail to the secret rock labyrinth. Amazing bridge views.", personas: ["teen", "local"], budget: "free", time: "short", address: "Lands End Trailhead, El Camino Del Mar, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Crissy Field Bike & Beach Walk", desc: "Flat, scenic waterfront path with Golden Gate Bridge views the whole way.", personas: ["parent", "local", "tourist"], budget: "free", time: "short", address: "1199 East Beach, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Dog Walk & Coffee at Duboce Park", desc: "A small, friendly neighborhood dog park with a coffee shop right across the street.", personas: ["local"], budget: "low", time: "short", address: "Duboce Park, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Rainy Day Arcade at Musée Mécanique", desc: "Vintage mechanical arcade games at Fisherman's Wharf — a fun, cheap indoor escape.", personas: ["teen", "tourist"], budget: "low", time: "short", address: "Pier 45, Shed A, San Francisco, CA", hours: "Check current hours", vibe: "indoor", dogFriendly: false, tag: "touristy" },
   { title: "Bernal Hill Sunset Hike", desc: "An off-leash dog hill with 360° views and way fewer crowds than Twin Peaks.", personas: ["local", "teen"], budget: "free", time: "short", address: "Bernal Heights Blvd, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
-  { title: "Fancy Tasting Menu Night", desc: "A splurge-worthy multi-course dinner — book ahead for weekend slots.", personas: ["local"], budget: "high", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific restaurant", vibe: "indoor", dogFriendly: false, tag: "local" },
+  { title: "Fancy Tasting Menu Night", desc: "A splurge-worthy multi-course dinner — book ahead for weekend slots.", personas: ["local"], budget: "splurge", time: "long", address: "Hayes Valley, San Francisco, CA", hours: "Evenings — check specific restaurant", vibe: "indoor", dogFriendly: false, tag: "local" },
   { title: "Exploratorium Rainy Day", desc: "Hands-on science museum on Pier 15 — a great full-day indoor plan when the fog rolls in.", personas: ["parent", "teen", "tourist"], budget: "high", time: "long", address: "Pier 15, San Francisco, CA", hours: "Check current hours", vibe: "indoor", dogFriendly: false, tag: "touristy" },
-  { title: "Cable Car Hop & Chinatown Walk", desc: "Ride a historic cable car, then wander Chinatown's alleys and shops.", personas: ["tourist", "teen"], budget: "low", time: "short", address: "Powell St Cable Car Turnaround, San Francisco, CA", hours: "Check current hours", vibe: "outdoor", dogFriendly: false, tag: "touristy" },
+  { title: "Cable Car Hop & Chinatown Walk", desc: "Ride a historic cable car, then wander Chinatown's alleys and shops.", personas: ["tourist", "teen"], budget: "mid", time: "short", address: "Powell St Cable Car Turnaround, San Francisco, CA", hours: "Check current hours", vibe: "outdoor", dogFriendly: false, tag: "touristy" },
   { title: "Local's Day Off: Ocean Beach & Thrift Shopping", desc: "A windswept beach walk followed by browsing Outer Sunset's thrift and vintage shops.", personas: ["local"], budget: "free", time: "long", address: "Great Highway, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Family Picnic at Marina Green", desc: "Wide waterfront lawn with kite-flying, joggers, and Golden Gate Bridge views.", personas: ["parent", "local"], budget: "free", time: "short", address: "Marina Green Dr, San Francisco, CA", hours: "Open 24/7", vibe: "outdoor", dogFriendly: true, tag: "local" },
   { title: "Rainy Day Bookstore Crawl", desc: "Hop between a few of the city's best independent bookstores, coffee in hand.", personas: ["local", "teen"], budget: "free", time: "short", address: "Clement St, San Francisco, CA", hours: "Shops vary", vibe: "indoor", dogFriendly: false, tag: "local" },
@@ -542,6 +568,7 @@ function weatherCodeToText(code) {
 
 async function updateWeather() {
   const weatherElement = document.getElementById('weather-widget');
+  const glanceWeatherEl = document.getElementById('glance-weather');
   try {
     const response = await fetch(
       'https://api.open-meteo.com/v1/forecast?latitude=37.7749&longitude=-122.4194&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles'
@@ -552,8 +579,18 @@ async function updateWeather() {
     currentWeatherCode = code; // stored so the planner can use it
     const condition = weatherCodeToText(code);
     weatherElement.textContent = `${condition}, ${temp}°F in SF`;
+    weatherElement.classList.remove('skeleton-text');
+    if (glanceWeatherEl) {
+      glanceWeatherEl.textContent = `${condition} · ${temp}°F`;
+      glanceWeatherEl.classList.remove('skeleton-text');
+    }
   } catch (error) {
     weatherElement.textContent = "Weather unavailable right now.";
+    weatherElement.classList.remove('skeleton-text');
+    if (glanceWeatherEl) {
+      glanceWeatherEl.textContent = "Unavailable";
+      glanceWeatherEl.classList.remove('skeleton-text');
+    }
   }
 }
 
@@ -1202,9 +1239,14 @@ function renderSunsetCountdown() {
   if (!sunsetTime || !sunsetContent) return;
   const now = new Date();
   const diffMs = sunsetTime - now;
+  const glanceSunsetEl = document.getElementById('glance-sunset');
 
   if (diffMs <= 0) {
     sunsetContent.innerHTML = `<p>Today's sunset already happened at <strong>${formatSFTime(sunsetTime)}</strong>. Catch golden hour tomorrow instead!</p>`;
+    if (glanceSunsetEl) {
+      glanceSunsetEl.textContent = `${formatSFTime(sunsetTime)} (past)`;
+      glanceSunsetEl.classList.remove('skeleton-text');
+    }
     return;
   }
 
@@ -1218,6 +1260,11 @@ function renderSunsetCountdown() {
     <p><strong>Sunset today:</strong> ${formatSFTime(sunsetTime)} <span class="no-events-message" style="display:inline;">(in ${countdownText})</span></p>
     <p><strong>Golden hour starts around:</strong> ${formatSFTime(goldenHourStart)}</p>
   `;
+
+  if (glanceSunsetEl) {
+    glanceSunsetEl.textContent = `${formatSFTime(sunsetTime)} (${countdownText})`;
+    glanceSunsetEl.classList.remove('skeleton-text');
+  }
 }
 
 async function loadSunsetTime() {
@@ -1253,7 +1300,15 @@ function fogLevelForCode(code) {
   return { percent: 30, label: "Reading current conditions..." };
 }
 
+function fogShortLabel(percent) {
+  if (percent >= 80) return "🌫️ Heavy";
+  if (percent >= 45) return "☁️ Hazy";
+  if (percent >= 20) return "⛅ Mild";
+  return "☀️ Clear";
+}
+
 function renderFogMeter() {
+  const glanceFogEl = document.getElementById('glance-fog');
   if (!fogMeterFill || !fogMeterStatus) return;
   if (currentWeatherCode === null || currentWeatherCode === undefined) {
     fogMeterStatus.textContent = 'Reading current conditions...';
@@ -1262,6 +1317,10 @@ function renderFogMeter() {
   const level = fogLevelForCode(currentWeatherCode);
   fogMeterFill.style.width = `${level.percent}%`;
   fogMeterStatus.textContent = level.label;
+  if (glanceFogEl) {
+    glanceFogEl.textContent = fogShortLabel(level.percent);
+    glanceFogEl.classList.remove('skeleton-text');
+  }
 }
 
 // currentWeatherCode is set asynchronously by script.js's updateWeather() — poll
@@ -1954,14 +2013,14 @@ if ('serviceWorker' in navigator) {
 // delight, not suspense that could be "gamed" by refreshing.
 
 const WHEEL_SEGMENTS = [
-  { key: 'eat', label: 'Eat', emoji: '🍜' },
-  { key: 'free', label: 'Free Thing', emoji: '💰' },
-  { key: 'outdoor', label: 'Outdoor', emoji: '☀️' },
-  { key: 'history', label: 'History', emoji: '📜' },
-  { key: 'gem', label: 'Hidden Gem', emoji: '⭐' },
-  { key: 'neighborhood', label: 'Neighborhood', emoji: '🧭' },
-  { key: 'sight', label: 'Sight', emoji: '🌉' },
-  { key: 'trivia', label: 'Trivia', emoji: '📜' }
+  { key: 'eat', label: 'Eat', emoji: '🍜', desc: 'A place to grab food' },
+  { key: 'free', label: 'Free Thing', emoji: '💰', desc: 'Something fun that costs nothing' },
+  { key: 'outdoor', label: 'Outdoor', emoji: '☀️', desc: 'A park, trail, or outdoor spot' },
+  { key: 'history', label: 'History', emoji: '🏛️', desc: 'A piece of SF\'s past' },
+  { key: 'gem', label: 'Hidden Gem', emoji: '⭐', desc: 'This week\'s local favorite' },
+  { key: 'neighborhood', label: 'Neighborhood', emoji: '🧭', desc: 'A pick from a random SF neighborhood' },
+  { key: 'sight', label: 'Sight', emoji: '🌉', desc: 'A classic must-see landmark' },
+  { key: 'trivia', label: 'Trivia', emoji: '📜', desc: 'A fun fact instead of a place' }
 ];
 
 // Alternates the site's own brand colors — no new palette introduced
@@ -2181,6 +2240,7 @@ function setupWheelForToday() {
   const wheelGroup = document.getElementById('wheel-rotate-group');
   const spinBtn = document.getElementById('wheel-spin-btn');
   const statusEl = document.getElementById('wheel-status');
+  const wheelWrap = document.getElementById('wheel-wrap');
   if (!wheelGroup || !spinBtn || !statusEl) return;
 
   const winningIndex = getWheelWinningIndex();
@@ -2189,6 +2249,7 @@ function setupWheelForToday() {
   const winningSegment = WHEEL_SEGMENTS[winningIndex];
 
   if (hasSpunWheelToday()) {
+    if (wheelWrap) wheelWrap.classList.remove('wheel-idle');
     wheelGroup.style.transition = 'none';
     wheelGroup.style.transform = `rotate(${wheelRestingRotation(centerAngle)}deg)`;
     renderWheelResult(winningSegment);
@@ -2211,6 +2272,7 @@ function setupWheelForToday() {
   spinBtn.onclick = function() {
     spinBtn.disabled = true;
     statusEl.textContent = 'Spinning...';
+    if (wheelWrap) wheelWrap.classList.remove('wheel-idle');
 
     const jitter = (Math.random() * 20) - 10; // small wobble, stays inside the slice
     const extraSpins = 5 + Math.floor(Math.random() * 3); // 5-7 full turns for drama
@@ -2231,8 +2293,53 @@ function setupWheelForToday() {
   };
 }
 
+function renderWheelLegend() {
+  const legendEl = document.getElementById('wheel-legend');
+  if (!legendEl) return;
+  legendEl.innerHTML = WHEEL_SEGMENTS.map((seg) => `
+    <div class="wheel-legend-item">
+      <span class="wheel-legend-emoji">${seg.emoji}</span>
+      <span class="wheel-legend-text">
+        <strong>${seg.label}</strong>
+        <span>${seg.desc}</span>
+      </span>
+    </div>
+  `).join('');
+}
+
 (function initWheel() {
   const wheelGroup = buildWheelSVG();
   if (!wheelGroup) return;
+  renderWheelLegend();
   setupWheelForToday();
+})();
+
+
+// --- QUICK NAV: highlight the active section while scrolling ---
+(function initQuickNavHighlight() {
+  const navLinks = document.querySelectorAll('.quick-nav-scroll a');
+  if (!navLinks.length || !('IntersectionObserver' in window)) return;
+
+  const linksByTarget = {};
+  navLinks.forEach((link) => {
+    const id = link.getAttribute('href').slice(1);
+    linksByTarget[id] = link;
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const link = linksByTarget[entry.target.id];
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach((l) => l.classList.remove('active'));
+        link.classList.add('active');
+        link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' }); // fires when a section crosses the vertical middle of the viewport
+
+  Object.keys(linksByTarget).forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
 })();
