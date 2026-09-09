@@ -1,1 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Direction: The Complete Timeline</title>
+  <meta name="description" content="A factual, year-by-year timeline of One Direction's hits, records, and cultural impact, from their 2010 formation through hiatus and Liam Payne's 2024 death.">
+  <meta name="robots" content="noindex, follow">
+  <style>
+    :root {
+      --ink: #211a2e;
+      --accent: #7b5ea7;
+      --accent-2: #d17b9e;
+      --accent-light: #b79fdb;
+      --bg: #faf8fc;
+      --card: #ffffff;
+      --muted: #6b6b7b;
+      --gold: #d4a94c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: white;
+      padding: 3rem 1.5rem 2.75rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+    }
+    header p.tagline {
+      margin: 0 auto;
+      opacity: 0.95;
+      max-width: 520px;
+    }
+    .back-link {
+      display: inline-block;
+      color: white;
+      opacity: 0.9;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .back-link:hover { opacity: 1; text-decoration: underline; }
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+    }
+    .note {
+      background: #f1ecf7;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 2rem 0 1.5rem;
+    }
+    .impact-box {
+      background: linear-gradient(135deg, #2b1f3d, #4a2f5e);
+      color: #f3ecfb;
+      border-radius: 14px;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .impact-box h2 {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.3rem;
+      color: var(--gold);
+    }
+    .impact-box p {
+      margin: 0 0 0.75rem 0;
+      font-size: 0.94rem;
+      opacity: 0.95;
+    }
+    .impact-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 1.25rem;
+    }
+    .impact-stat {
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+    }
+    .impact-stat strong {
+      display: block;
+      font-size: 1.15rem;
+      color: white;
+    }
+    .impact-stat span {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+    h2.section-title {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--accent-light);
+    }
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      bottom: 6px;
+      width: 3px;
+      background: var(--accent-light);
+      border-radius: 3px;
+    }
+    .event {
+      position: relative;
+      background: var(--card);
+      border-radius: 10px;
+      padding: 1.15rem 1.3rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .event::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 1.35rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+    }
+    .event.somber::before { background: #7a7a7a; }
+    .event.somber { border-left: 4px solid #888; }
+    .event-date {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .event h3 {
+      margin: 0 0 0.4rem 0;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+    .event p {
+      margin: 0 0 0.5rem 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .event p:last-child { margin-bottom: 0; }
+    .hits-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.6rem;
+    }
+    .hit-chip {
+      background: #f1ecf7;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 20px;
+    }
+    .album-chip {
+      background: var(--accent);
+      color: white;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-link">← Back to SF Today</a>
+    <h1>One Direction: The Complete Timeline</h1>
+    <p class="tagline">This page has nothing to do with San Francisco — it's just here because someone wanted it. Formation to hiatus, hit by hit, plus the era they helped define.</p>
+  </header>
 
+  <main>
+    <div class="note">
+      This is a standalone page, unrelated to the rest of this site. All dates, chart positions, and figures below are drawn from public reporting (Billboard, Official Charts Company, and contemporaneous coverage).
+    </div>
+
+    <div class="impact-box">
+      <h2>🌍 How They Defined an Era</h2>
+      <p>One Direction weren't just a successful boy band — they were arguably the first act whose fame was built as much on social media as on radio. Twitter, Tumblr, and YouTube turned five strangers from a UK talent show into a stadium-filling global act within about 18 months, years before "internet fame" was a normal career path for a music act.</p>
+      <p>They also broke a chart record no one had matched before: with the release of <em>Four</em> in 2014, they became the first band in Billboard 200 history to have their first four studio albums all debut at #1 — a run most acts never manage even once.</p>
+      <div class="impact-stats">
+        <div class="impact-stat"><strong>70M+</strong><span>records sold worldwide (as of 2020)</span></div>
+        <div class="impact-stat"><strong>4 for 4</strong><span>consecutive #1 US album debuts</span></div>
+        <div class="impact-stat"><strong>$290.2M</strong><span>grossed by the 2014 Where We Are Tour</span></div>
+        <div class="impact-stat"><strong>19 / 19</strong><span>Teen Choice Award wins from nominations</span></div>
+      </div>
+    </div>
+
+    <h2 class="section-title">The Timeline</h2>
+    <div class="timeline">
+
+      <div class="event">
+        <div class="event-date">July – September 2010</div>
+        <h3>Five Solo Auditions Become One Band</h3>
+        <p>Niall Horan, Liam Payne, Harry Styles, Louis Tomlinson, and Zayn Malik each auditioned as solo contestants on the seventh series of <em>The X Factor</em> UK. After being eliminated individually at the "Boys" category bootcamp stage, judges Simon Cowell and Nicole Scherzinger regrouped all five into a single band: One Direction.</p>
+      </div>
+
+      <div class="event">
+        <div class="event-date">December 2010</div>
+        <h3>Third Place, But Signed Anyway</h3>
+        <p>One Direction finished third in the live final — but Simon Cowell signed them to his label, Syco Records, within days, betting on the group over the eventual winner.</p>
+      </div>
+
+      <div class="event">
+        <div class="event-date">2011 — <em>Up All Night</em></div>
+        <h3>The Breakout Year</h3>
+        <p>Their debut single became their first UK #1 and the highest US Hot 100 debut for a British act since 1998. <em>Up All Night</em> made chart history as the first debut album by a UK group to open at #1 on the US Billboard 200.</p>
+        <div class="hits-row">
+          <span class="hit-chip album-chip">Album: Up All Night</span>
+          <span class="hit-chip">What Makes You Beautiful</span>
+          <span class="hit-chip">Gotta Be You</span>
+          <span class="hit-chip">One Thing</span>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-date">2012 — <em>Take Me Home</em></div>
+        <h3>From Pop Act to Touring Juggernaut</h3>
+        <p>Their second album and the accompanying tour turned the band into a global stadium act rather than just a chart act, with sold-out nights at London's O2 Arena and a US Top 10 hit.</p>
+        <div class="hits-row">
+          <span class="hit-chip album-chip">Album: Take Me Home</span>
+          <span class="hit-chip">Live While We're Young</span>
+          <span class="hit-chip">Kiss You</span>
+          <span class="hit-chip">Little Things</span>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-date">2013 — <em>Midnight Memories</em></div>
+        <h3>The Best-Selling Album Worldwide That Year</h3>
+        <p>Despite a late-November release, <em>Midnight Memories</em> became the best-selling album in the world for 2013. The documentary <em>This Is Us</em> also hit theaters, showing the scale of the fan hysteria surrounding the band.</p>
+        <div class="hits-row">
+          <span class="hit-chip album-chip">Album: Midnight Memories</span>
+          <span class="hit-chip">Best Song Ever</span>
+          <span class="hit-chip">Story of My Life</span>
+          <span class="hit-chip">One Way or Another</span>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-date">2014 — <em>Four</em></div>
+        <h3>A Billboard 200 First</h3>
+        <p><em>Four</em> made One Direction the first band in Billboard 200 history to have their first four studio albums all debut at #1. That same year, <em>Billboard</em> named them Artist of the Year, and their Where We Are Tour became the highest-grossing tour by a vocal group ever, at the time.</p>
+        <div class="hits-row">
+          <span class="hit-chip album-chip">Album: Four</span>
+          <span class="hit-chip">Steal My Girl</span>
+          <span class="hit-chip">Night Changes</span>
+          <span class="hit-chip">18</span>
+        </div>
+      </div>
+
+      <div class="event somber">
+        <div class="event-date">March 25, 2015</div>
+        <h3>Zayn Malik Departs</h3>
+        <p>After five years in the group, Zayn Malik announced he was leaving. The remaining four members confirmed within days they'd continue as a four-piece rather than replace him.</p>
+      </div>
+
+      <div class="event">
+        <div class="event-date">2015 — <em>Made in the A.M.</em></div>
+        <h3>The Final Album</h3>
+        <p>Their fifth studio album, and first as a four-piece, arrived in November — their last release before the hiatus. "Drag Me Down," the lead single, was the first new music released after Zayn's departure.</p>
+        <div class="hits-row">
+          <span class="hit-chip album-chip">Album: Made in the A.M.</span>
+          <span class="hit-chip">Drag Me Down</span>
+          <span class="hit-chip">Perfect</span>
+          <span class="hit-chip">History</span>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-date">December 2015 – January 2016</div>
+        <h3>Indefinite Hiatus</h3>
+        <p>The band announced a break to pursue individual projects, effective January 2016. Their final performance together was on <em>The X Factor</em> UK's 2015 grand final; their last televised performance was on <em>Dick Clark's New Year's Rockin' Eve</em>, December 31, 2015. The hiatus was never formally ended.</p>
+      </div>
+
+      <div class="event">
+        <div class="event-date">2016 – 2023</div>
+        <h3>Five Solo Careers</h3>
+        <p>All five members — including Zayn — released solo music during this period, each finding their own chart success independently of the band.</p>
+      </div>
+
+      <div class="event somber">
+        <div class="event-date">October 16, 2024</div>
+        <h3>Liam Payne's Death</h3>
+        <p>Liam Payne died at age 31 after a fall from a hotel balcony in Buenos Aires, Argentina, while traveling in South America. His death was met with an outpouring of grief from fans, his bandmates, and the music industry worldwide.</p>
+      </div>
+
+      <div class="event">
+        <div class="event-date">Legacy</div>
+        <h3>One of the Best-Selling Boy Bands in History</h3>
+        <p>Five strangers put together on a UK talent show in 2010 went on to sell more than 70 million records worldwide, set a chart record that still stands, and helped prove that a fanbase built on social media could rival — or exceed — one built on radio alone.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p><a href="index.html">← Back to SF Today</a></p>
+    <p>Sourced from public reporting. Unaffiliated with One Direction, its members, or their representatives.</p>
+  </footer>
+</body>
+</html>
