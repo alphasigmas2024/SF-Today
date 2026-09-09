@@ -133,6 +133,7 @@
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   <a href="donate.html" class="side-tab side-tab-left">💛 Donate</a>
   <a href="feedback.html" class="side-tab side-tab-right">💬 Feedback</a>
 
@@ -223,7 +224,7 @@
       <div class="header-controls">
         <!-- Displays the live day and time inside the header -->
         <div id="live-clock">Loading live time...</div>
-        <div id="weather-widget">Loading weather...</div>
+        <div id="weather-widget" class="skeleton-text">Loading weather...</div>
         <div class="header-btn-row">
           <button id="search-open-btn" class="dark-toggle" aria-label="Search the site" title="Search (press /)">🔍</button>
           <button id="checklist-open-btn" class="dark-toggle" aria-label="My SF Checklist" title="My SF Checklist">🗺️ <span id="checklist-progress-label">0/0</span></button>
@@ -232,7 +233,41 @@
       </div>
     </div>
   </header>
-  <main>
+
+  <!-- QUICK NAV — sticky jump-to bar, since the homepage covers a lot of ground -->
+  <nav class="quick-nav" id="quick-nav" aria-label="Jump to section">
+    <div class="quick-nav-scroll">
+      <a href="#section-plan">Plan</a>
+      <a href="#section-sweeping">Sweeping</a>
+      <a href="#section-muni">Muni</a>
+      <a href="#section-sunset">Sunset & Fog</a>
+      <a href="#section-essentials">Essentials</a>
+      <a href="#section-weekly">This Week</a>
+      <a href="#section-neighborhoods">Neighborhoods</a>
+      <a href="#section-guides">Guides</a>
+      <a href="#section-wheel">Wheel</a>
+      <a href="#section-game">Game</a>
+      <a href="#section-signup">Sign Up</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- TODAY AT A GLANCE — a compact dashboard summarizing live conditions -->
+    <section class="glance-strip" aria-label="Today at a glance">
+      <div class="glance-card">
+        <span class="glance-label">Weather</span>
+        <span id="glance-weather" class="glance-value skeleton-text">Loading…</span>
+      </div>
+      <div class="glance-card">
+        <span class="glance-label">Sunset</span>
+        <span id="glance-sunset" class="glance-value skeleton-text">Loading…</span>
+      </div>
+      <div class="glance-card">
+        <span class="glance-label">Fog</span>
+        <span id="glance-fog" class="glance-value skeleton-text">Loading…</span>
+      </div>
+    </section>
+
     <!-- Centered in the white space right above the planner box -->
     <div class="badge-container">
       <a href="release-notes.html" class="whats-new-badge">
@@ -242,7 +277,7 @@
     </div>
 
     <!-- THE PERSONALIZED PLANNER -->
-    <section class="planner-box">
+    <section class="planner-box" id="section-plan">
       <h2>Build My Custom Plan</h2>
 
       <div class="input-row">
@@ -259,8 +294,10 @@
           <label>Budget?</label>
           <select id="budget">
             <option value="free">Free ($0)</option>
-            <option value="low">Under $50</option>
-            <option value="high">Over $100</option>
+            <option value="low">Under $25</option>
+            <option value="mid">$25–$75</option>
+            <option value="high">$75–$150</option>
+            <option value="splurge">$150+</option>
           </select>
         </div>
         <div class="input-group">
@@ -303,7 +340,7 @@
     </section>
 
     <!-- STREET SWEEPING LOOKUP -->
-    <section class="tool-box">
+    <section class="tool-box" id="section-sweeping">
       <h2>🅿️ Street Sweeping Lookup</h2>
       <p class="tool-subtitle">Search by street name using San Francisco's official public data. This shows every block on that street — always confirm against the posted sign on your exact block before parking, since schedules can vary block-by-block.</p>
       <div class="tool-input-row">
@@ -314,20 +351,20 @@
     </section>
 
     <!-- MUNI SERVICE ALERTS -->
-    <section class="tool-box">
+    <section class="tool-box" id="section-muni">
       <h2>🚋 Muni Service Alerts</h2>
       <p class="tool-subtitle">Live service alerts pulled from 511.org's real-time transit API.</p>
       <div id="muni-alerts-content">
-        <p class="no-events-message">Loading alerts...</p>
+        <div class="skeleton-block"></div>
       </div>
     </section>
 
     <!-- SUNSET, GOLDEN HOUR & FOG FORECAST -->
-    <section class="tool-box">
+    <section class="tool-box" id="section-sunset">
       <h2>🌅 Sunset & Golden Hour</h2>
       <p class="tool-subtitle">Live sunset time for San Francisco, pulled from a public sunrise/sunset API — good for planning that last Twin Peaks or Lands End walk.</p>
       <div id="sunset-content">
-        <p class="no-events-message">Loading today's sunset time...</p>
+        <div class="skeleton-block"></div>
       </div>
       <hr class="tool-divider">
       <h3>🌫️ Karl the Fog Meter</h3>
@@ -346,14 +383,10 @@
     </section>
 
     <!-- SF ESSENTIALS: PRACTICAL INFO EVERY GUIDE SHOULD HAVE -->
-    <section class="tool-box">
+    <section class="tool-box" id="section-essentials">
       <h2>📋 SF Essentials</h2>
       <p class="tool-subtitle">The practical numbers and norms that don't fit neatly anywhere else.</p>
       <div class="essentials-grid">
-        <div class="essential-item">
-          <strong>Emergency</strong>
-          <span>911</span>
-        </div>
         <div class="essential-item">
           <strong>Non-Emergency Police</strong>
           <span>(415) 553-0123</span>
@@ -374,11 +407,15 @@
           <strong>Car Break-Ins</strong>
           <span>Common citywide — never leave anything visible in a parked car, not even an empty bag</span>
         </div>
+        <div class="essential-item">
+          <strong>Rideshare & Taxis</strong>
+          <span>Uber and Lyft both operate citywide; Flywheel is a well-known local taxi app</span>
+        </div>
       </div>
     </section>
 
     <!-- THIS WEEK IN SF - RECURRING WEEKLY EVENTS FEED -->
-    <section class="weekly-events-box">
+    <section class="weekly-events-box" id="section-weekly">
       <h2>This Week in SF</h2>
       <p class="weekly-events-subtitle">Real recurring markets and happenings — always confirm before heading out, as schedules can pause for holidays.</p>
       <div class="day-tabs" id="day-tabs">
@@ -394,7 +431,7 @@
     </section>
 
     <!-- EXPLORE BY NEIGHBORHOOD -->
-    <section class="dashboard-section">
+    <section class="dashboard-section" id="section-neighborhoods">
       <div class="section-heading-row">
         <h2>Explore by Neighborhood</h2>
         <div class="section-heading-actions">
@@ -419,7 +456,7 @@
     </section>
 
     <!-- THE EVERGREEN DASHBOARD CARDS -->
-    <section class="dashboard-section">
+    <section class="dashboard-section" id="section-guides">
       <h2>Explore SF Guides</h2>
       <div class="dashboard-grid">
         <div class="dash-card" data-category="dinner">🍜 Classic SF Eats</div>
@@ -434,7 +471,7 @@
     </section>
 
     <!-- THIS WEEK'S LOCAL FAVORITE (rotates weekly) -->
-    <section class="tool-box">
+    <section class="tool-box" id="section-favorite">
       <h2>⭐ This Week's Local Favorite</h2>
       <p class="tool-subtitle">A rotating hidden-gem pick from around the city — changes every week.</p>
       <div id="local-favorite-content"></div>
@@ -472,20 +509,21 @@
     </section>
 
     <!-- SPIN THE SF WHEEL (once a day — lands on a category, reveals one real pick) -->
-    <section class="tool-box">
+    <section class="tool-box" id="section-wheel">
       <h2>🎡 Spin the SF Wheel</h2>
       <p class="tool-subtitle">One spin a day. It lands on a category and hands you one real pick — a place to eat, a free thing to do, a hidden gem, whatever comes up.</p>
-      <div class="wheel-wrap">
+      <div class="wheel-wrap wheel-idle" id="wheel-wrap">
         <div class="wheel-pointer">▼</div>
         <svg id="sf-wheel" class="sf-wheel" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"></svg>
       </div>
+      <div class="wheel-legend" id="wheel-legend" aria-label="What each wheel category means"></div>
       <button id="wheel-spin-btn" class="secondary-btn wheel-spin-btn">Spin the Wheel</button>
       <p id="wheel-status" class="no-events-message"></p>
       <div id="wheel-result" class="hidden"></div>
     </section>
 
     <!-- GUESS THE SF SPOT (rotates to a new puzzle every day, same one for everyone) -->
-    <section class="tool-box">
+    <section class="tool-box" id="section-game">
       <h2>🎮 Guess the SF Spot</h2>
       <p class="tool-subtitle">A new mystery San Francisco location every day. Read a clue, take a guess — a wrong guess reveals another clue. Try to solve it in as few as possible.</p>
       <span id="spot-streak" class="spot-streak hidden"></span>
@@ -500,7 +538,7 @@
     </section>
 
     <!-- EMAIL SIGNUP -->
-    <section class="signup-box">
+    <section class="signup-box" id="section-signup">
       <h2>Never Miss What's Happening in SF</h2>
       <p>Get a short weekly email with what's worth doing this week.</p>
       <!--
