@@ -318,6 +318,26 @@ footer p + p {
   margin-top: 6px;
 }
 
+.footer-aside {
+  margin-top: 14px !important;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-weight: 400 !important;
+  font-size: 0.75rem !important;
+  background: none !important;
+  -webkit-text-fill-color: #6b7280 !important;
+  color: #6b7280 !important;
+}
+
+.footer-aside a {
+  color: #6b7280;
+  text-decoration: underline;
+}
+
+.footer-aside a:hover {
+  color: #9fd3ff;
+}
+
 #live-clock {
   font-size: 1.2rem;
   font-weight: 600;
