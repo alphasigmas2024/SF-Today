@@ -1340,7 +1340,6 @@ footer p + p {
   #wheel-status,
   .wheel-legend,
   .quick-nav,
-  .glance-strip,
   .skip-link {
     display: none !important;
   }
@@ -1384,6 +1383,7 @@ footer p + p {
 
 #checklist-progress-label {
   font-weight: 700;
+  margin-left: 5px;
 }
 
 /* --- SPIN THE SF WHEEL --- */
@@ -1504,34 +1504,6 @@ footer p + p {
 
 #wheel-result .plan-item {
   border-left-color: var(--accent);
-}
-
-/* --- SF ESSENTIALS GRID --- */
-.essentials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
-}
-
-.essential-item {
-  background: var(--bg-color);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.essential-item strong {
-  color: var(--primary);
-  font-size: 0.85rem;
-}
-
-.essential-item span {
-  font-size: 0.88rem;
-  color: var(--text);
-  line-height: 1.4;
 }
 
 /* --- VISITED / "BEEN THERE" TOGGLE ON VENUE CARDS --- */
@@ -1697,6 +1669,41 @@ footer p + p {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
+/* Fade hints on both edges so a scrollable nav reads as "more items here",
+   not as clipped/broken text */
+.quick-nav {
+  position: relative;
+}
+
+.quick-nav::before,
+.quick-nav::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.quick-nav::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+.quick-nav::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--primary), transparent);
+}
+
+body.dark-mode .quick-nav::before {
+  background: linear-gradient(90deg, #1a1a1a, transparent);
+}
+
+body.dark-mode .quick-nav::after {
+  background: linear-gradient(270deg, #1a1a1a, transparent);
+}
+
 .quick-nav-scroll {
   display: flex;
   gap: 4px;
@@ -1731,43 +1738,6 @@ footer p + p {
 
 body.dark-mode .quick-nav {
   background: #1a1a1a;
-}
-
-/* --- TODAY AT A GLANCE --- */
-.glance-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 1.25rem 0;
-}
-
-.glance-card {
-  background: var(--card-bg);
-  border-radius: 10px;
-  padding: 0.85rem 0.5rem;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.glance-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.glance-value {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-@media (max-width: 480px) {
-  .glance-value { font-size: 0.8rem; }
 }
 
 /* --- LOADING SKELETONS --- */
