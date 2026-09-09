@@ -74,9 +74,50 @@
     <p>SF Today — Your daily guide to exploring San Francisco. Helping locals and visitors discover the best of SF.</p>
     <p>Built by a local SF developer • Version 1.0 • © 2026</p>
     <p>Based in San Francisco · Contact: sftoday@gmail.com</p>
+    <p class="footer-aside">Also on this site, unrelated: <a href="one-direction.html">a One Direction timeline</a></p>
   </footer>
-  <script src="confetti.js"></script>
   <script>
+    // --- CONFETTI (inlined so this page doesn't need a separate file) ---
+    function launchConfetti() {
+      const prefersReducedMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const colors = ['#C1440E', '#10243E', '#3B6EA5', '#2ed573', '#F2A65A', '#ff4757'];
+      const pieceCount = 90;
+      const container = document.createElement('div');
+      container.className = 'confetti-container';
+      container.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(container);
+      let maxDuration = 0;
+
+      for (let i = 0; i < pieceCount; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti-piece';
+        const left = Math.random() * 100;
+        const duration = 2.2 + Math.random() * 1.6;
+        const delay = Math.random() * 0.4;
+        const drift = (Math.random() * 160 - 80);
+        const rotateStart = Math.random() * 360;
+        const size = 6 + Math.random() * 6;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const isCircle = Math.random() > 0.6;
+
+        piece.style.left = `${left}vw`;
+        piece.style.width = `${size}px`;
+        piece.style.height = `${size * (isCircle ? 1 : 1.6)}px`;
+        piece.style.backgroundColor = color;
+        piece.style.borderRadius = isCircle ? '50%' : '2px';
+        piece.style.animationDuration = `${duration}s`;
+        piece.style.animationDelay = `${delay}s`;
+        piece.style.setProperty('--drift', `${drift}px`);
+        piece.style.transform = `rotate(${rotateStart}deg)`;
+        container.appendChild(piece);
+        maxDuration = Math.max(maxDuration, duration + delay);
+      }
+      setTimeout(() => container.remove(), (maxDuration + 0.3) * 1000);
+    }
+
     // Replace this with your real PayPal.me link (or swap the whole function
     // below to point at Ko-fi, Buy Me a Coffee, Venmo, etc.)
     const DONATION_LINK_BASE = "https://paypal.me/YOUR_PAYPAL_HANDLE";
