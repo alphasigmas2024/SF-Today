@@ -614,7 +614,9 @@ async function checkStreetSweeping() {
 
   try {
     const whereClause = `upper(corridor) like upper('%25${query.replace(/'/g, "''")}%25')`;
-    const url = `https://data.sfgov.org/resource/yhqp-riqs.json?$where=${encodeURIComponent(whereClause)}&$limit=15`;
+    // DataSF migrated from data.sfgov.org to data.sf.gov in September 2026 —
+    // using the new official domain so this doesn't break as the old one winds down.
+    const url = `https://data.sf.gov/resource/yhqp-riqs.json?$where=${encodeURIComponent(whereClause)}&$limit=15`;
     const response = await fetch(url);
     const data = await response.json();
 
