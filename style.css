@@ -1670,11 +1670,8 @@ footer p + p {
 }
 
 /* Fade hints on both edges so a scrollable nav reads as "more items here",
-   not as clipped/broken text */
-.quick-nav {
-  position: relative;
-}
-
+   not as clipped/broken text. position:sticky above already establishes the
+   positioning context these need — no separate position:relative required. */
 .quick-nav::before,
 .quick-nav::after {
   content: '';
