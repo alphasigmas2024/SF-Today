@@ -2318,13 +2318,27 @@ function renderWheelLegend() {
 // --- QUICK NAV: highlight the active section while scrolling ---
 (function initQuickNavHighlight() {
   const navLinks = document.querySelectorAll('.quick-nav-scroll a');
-  if (!navLinks.length || !('IntersectionObserver' in window)) return;
+  const scrollContainer = document.querySelector('.quick-nav-scroll');
+  if (!navLinks.length || !scrollContainer || !('IntersectionObserver' in window)) return;
 
   const linksByTarget = {};
   navLinks.forEach((link) => {
     const id = link.getAttribute('href').slice(1);
     linksByTarget[id] = link;
   });
+
+  // Keeps the active pill visible WITHIN the horizontal nav strip only —
+  // deliberately never touches window/page scroll (that was the bug: the
+  // previous version used link.scrollIntoView(), which considers every
+  // scrollable ancestor including the page itself, and fought the user's
+  // own scrolling — especially awkward combined with a sticky nav).
+  function keepActiveLinkVisible(link) {
+    const targetLeft = link.offsetLeft - (scrollContainer.clientWidth / 2) + (link.clientWidth / 2);
+    scrollContainer.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: 'smooth'
+    });
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -2333,7 +2347,7 @@ function renderWheelLegend() {
       if (entry.isIntersecting) {
         navLinks.forEach((l) => l.classList.remove('active'));
         link.classList.add('active');
-        link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        keepActiveLinkVisible(link);
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px' }); // fires when a section crosses the vertical middle of the viewport
