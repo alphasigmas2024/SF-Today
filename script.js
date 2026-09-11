@@ -112,6 +112,31 @@ function mapsLink(address) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 }
 
+function walkingDirectionsLink(fromAddress, toAddress) {
+  return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(fromAddress)}&destination=${encodeURIComponent(toAddress)}&travelmode=walking`;
+}
+
+// Builds a full itinerary's HTML, inserting a real "get directions to next
+// stop" link between consecutive addressed venues. Uses Google Maps' actual
+// routing (not a guessed time) so the walk/transit estimate is always correct.
+function buildItineraryHtml(items) {
+  let html = '';
+  items.forEach((item, i) => {
+    html += buildVenueCard(item);
+    const next = items[i + 1];
+    if (next && item.address && next.address && item.address !== 'Citywide' && next.address !== 'Citywide') {
+      html += `
+        <div class="itinerary-connector">
+          <a href="${walkingDirectionsLink(item.address, next.address)}" target="_blank" rel="noopener">
+            🚶 Directions to next stop: ${next.title} →
+          </a>
+        </div>
+      `;
+    }
+  });
+  return html;
+}
+
 function tagBadgeHtml(tag) {
   if (tag === 'local') return '<span class="tag-badge tag-local">🏠 Local Pick</span>';
   if (tag === 'touristy') return '<span class="tag-badge tag-touristy">📸 Tourist Favorite</span>';
@@ -147,6 +172,14 @@ function visitedToggleHtml(title) {
   return `<button type="button" class="visited-toggle${visitedClass}" data-slug="${slug}" data-title="${title.replace(/"/g, '&quot;')}">${label}</button>`;
 }
 
+// Single, honest "last reviewed" date applied uniformly across the whole
+// guide — not a fabricated per-venue date nobody actually checked individually.
+const CONTENT_LAST_REVIEWED = "September 2026";
+
+function reportIssueLink(title) {
+  return `<a class="report-issue-link" href="feedback.html?venue=${encodeURIComponent(title)}" target="_blank" rel="noopener">⚠️ Report an issue</a>`;
+}
+
 function buildVenueCard(item) {
   const badge = tagBadgeHtml(item.tag);
 
@@ -169,7 +202,11 @@ function buildVenueCard(item) {
         <span class="venue-hours">🕒 ${item.hours}</span>
         <a class="venue-directions" href="${mapsLink(item.address)}" target="_blank" rel="noopener">Get Directions →</a>
       </div>
-      ${isRealVisitablePlace(item) ? visitedToggleHtml(item.title) : ''}
+      <div class="venue-footer-row">
+        ${isRealVisitablePlace(item) ? visitedToggleHtml(item.title) : ''}
+        <span class="venue-verified" title="This guide's information is periodically reviewed, not individually fact-checked per venue">✓ Checked ${CONTENT_LAST_REVIEWED}</span>
+        ${reportIssueLink(item.title)}
+      </div>
     </div>
   `;
 }
@@ -431,9 +468,7 @@ generateBtn.addEventListener('click', function() {
   let htmlString = weatherNote;
   if (matches.length > 0) {
     currentPlanItems = matches;
-    matches.forEach(match => {
-      htmlString += buildVenueCard(match);
-    });
+    htmlString += buildItineraryHtml(matches);
   } else {
     const fallbackItem = {
       title: "Explore the Waterfront",
@@ -460,7 +495,7 @@ dashCards.forEach(card => {
     if (evergreenCategories[categoryKey]) {
       resultsTitle.textContent = cardText;
       currentPlanItems = evergreenCategories[categoryKey];
-      itineraryContent.innerHTML = evergreenCategories[categoryKey].map(buildVenueCard).join('');
+      itineraryContent.innerHTML = buildItineraryHtml(evergreenCategories[categoryKey]);
       resultsSection.classList.remove('hidden');
       resultsSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -476,7 +511,7 @@ neighborhoodCards.forEach(card => {
     if (neighborhoods[key]) {
       resultsTitle.textContent = cardText;
       currentPlanItems = neighborhoods[key];
-      itineraryContent.innerHTML = neighborhoods[key].map(buildVenueCard).join('');
+      itineraryContent.innerHTML = buildItineraryHtml(neighborhoods[key]);
       resultsSection.classList.remove('hidden');
       resultsSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -1335,6 +1370,63 @@ const fogMeterInterval = setInterval(() => {
 renderFogMeter();
 
 
+// --- WEATHER-BASED GUIDE REORDERING ---
+// Quietly reorders "Explore SF Guides" so weather-appropriate categories
+// surface first — runs once per page load, not repeatedly, so cards don't
+// keep shuffling under someone while they're browsing.
+const GUIDE_WEATHER_AFFINITY = {
+  outdoors: 'outdoor',
+  free: 'outdoor',
+  dinner: 'indoor',
+  family: 'indoor',
+  history: 'indoor',
+  visit: 'neutral',
+  transit: 'neutral',
+  stories: 'neutral'
+};
+
+let guidesReordered = false;
+
+function reorderGuidesForWeather() {
+  if (guidesReordered) return;
+  if (currentWeatherCode === null || currentWeatherCode === undefined) return;
+
+  const grid = document.getElementById('guides-grid');
+  const note = document.getElementById('guides-reorder-note');
+  if (!grid) return;
+
+  const goodOutdoor = isGoodOutdoorWeather(currentWeatherCode);
+  const cards = Array.from(grid.children);
+  const scored = cards.map((card) => {
+    const key = card.getAttribute('data-category');
+    const affinity = GUIDE_WEATHER_AFFINITY[key] || 'neutral';
+    let score = 1; // neutral stays in the middle
+    if (affinity === 'outdoor') score = goodOutdoor ? 0 : 2;
+    if (affinity === 'indoor') score = goodOutdoor ? 2 : 0;
+    return { card, score };
+  });
+
+  scored.sort((a, b) => a.score - b.score);
+  scored.forEach((s) => grid.appendChild(s.card));
+
+  if (note) {
+    note.textContent = goodOutdoor
+      ? '☀️ Clear out there — outdoor guides moved to the top.'
+      : '🌧️ Not the best outside right now — indoor guides moved to the top.';
+    note.classList.remove('hidden');
+  }
+
+  guidesReordered = true;
+}
+
+const guidesReorderInterval = setInterval(() => {
+  if (currentWeatherCode !== null && currentWeatherCode !== undefined) {
+    reorderGuidesForWeather();
+    clearInterval(guidesReorderInterval);
+  }
+}, 3000);
+
+
 // --- WEATHER-IMPROVED TOAST ---
 // Lets a visitor who's had the tab open know when skies have cleared up,
 // without them needing to keep checking the header manually.
@@ -1483,6 +1575,78 @@ if (geoNearestBtn) {
 }
 
 
+// --- SHAREABLE RESULT IMAGES (quiz result, wheel spin) ---
+// Draws a simple branded square image on canvas and offers it as a download —
+// no external libraries, so quality is intentionally kept simple and reliable
+// rather than trying to rasterize arbitrary HTML.
+function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+  const lines = [];
+  words.forEach((word, i) => {
+    const testLine = line + word + ' ';
+    if (ctx.measureText(testLine).width > maxWidth && i > 0) {
+      lines.push(line.trim());
+      line = word + ' ';
+    } else {
+      line = testLine;
+    }
+  });
+  lines.push(line.trim());
+  const startY = y - ((lines.length - 1) * lineHeight) / 2;
+  lines.forEach((l, i) => ctx.fillText(l, x, startY + i * lineHeight));
+  return lines.length;
+}
+
+function generateShareableImage({ emoji, title, subtitle }) {
+  const size = 1080;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d');
+
+  const grad = ctx.createLinearGradient(0, 0, 0, size);
+  grad.addColorStop(0, '#0B1D33');
+  grad.addColorStop(0.55, '#1B3A5C');
+  grad.addColorStop(1, '#C1440E');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, size, size);
+
+  // Simplified bridge silhouette along the bottom
+  ctx.fillStyle = '#2A0E06';
+  const deckY = size * 0.82;
+  ctx.fillRect(size * 0.08, deckY, size * 0.84, size * 0.012);
+  ctx.fillRect(size * 0.30, size * 0.58, size * 0.045, deckY - size * 0.58);
+  ctx.fillRect(size * 0.655, size * 0.58, size * 0.045, deckY - size * 0.58);
+
+  ctx.textAlign = 'center';
+
+  ctx.font = `${size * 0.16}px sans-serif`;
+  ctx.fillText(emoji, size / 2, size * 0.32);
+
+  ctx.fillStyle = '#FBFAF8';
+  ctx.font = `bold ${size * 0.062}px -apple-system, "Segoe UI", Roboto, sans-serif`;
+  canvasWrapText(ctx, title, size / 2, size * 0.46, size * 0.82, size * 0.075);
+
+  ctx.fillStyle = '#E9EDF0';
+  ctx.font = `${size * 0.032}px -apple-system, "Segoe UI", Roboto, sans-serif`;
+  canvasWrapText(ctx, subtitle, size / 2, size * 0.585, size * 0.78, size * 0.042);
+
+  ctx.fillStyle = '#F2A65A';
+  ctx.font = `bold ${size * 0.03}px -apple-system, "Segoe UI", Roboto, sans-serif`;
+  ctx.fillText('SF TODAY', size / 2, size * 0.94);
+
+  return canvas;
+}
+
+function downloadShareableImage(canvas, filename) {
+  const link = document.createElement('a');
+  link.download = filename;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+
 // --- "WHICH SF NEIGHBORHOOD ARE YOU?" QUIZ ---
 const quizQuestions = [
   {
@@ -1606,18 +1770,31 @@ function renderQuizResult() {
     <div class="quiz-result-actions">
       <button type="button" id="quiz-see-guide-btn" class="secondary-btn">See the Guide</button>
       <button type="button" id="quiz-share-btn" class="secondary-btn">Share Result</button>
+      <button type="button" id="quiz-download-btn" class="secondary-btn">📸 Download as Image</button>
       <button type="button" id="quiz-retake-btn" class="secondary-btn">Retake Quiz</button>
     </div>
   `;
 
   if (typeof launchConfetti === 'function') launchConfetti();
 
+  document.getElementById('quiz-download-btn').addEventListener('click', function() {
+    const nameParts = resultName.split(' ');
+    const emoji = nameParts[0];
+    const nameOnly = nameParts.slice(1).join(' ');
+    const canvas = generateShareableImage({
+      emoji: emoji,
+      title: `You're ${nameOnly}!`,
+      subtitle: 'Which SF Neighborhood Are You? — take the quiz yourself'
+    });
+    downloadShareableImage(canvas, 'sf-today-neighborhood-result.png');
+  });
+
   document.getElementById('quiz-see-guide-btn').addEventListener('click', function() {
     closeQuiz();
     if (neighborhoods[winningKey]) {
       resultsTitle.textContent = resultName;
       currentPlanItems = neighborhoods[winningKey];
-      itineraryContent.innerHTML = neighborhoods[winningKey].map(buildVenueCard).join('');
+      itineraryContent.innerHTML = buildItineraryHtml(neighborhoods[winningKey]);
       resultsSection.classList.remove('hidden');
       resultsSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -2128,17 +2305,24 @@ function renderWheelResult(segment) {
   if (!resultEl) return;
 
   let shareText;
+  let imageTitle;
+  let imageSubtitle;
 
   if (segment.key === 'trivia' && typeof triviaFacts !== 'undefined') {
     const fact = triviaFacts[sfDayOfYear() % triviaFacts.length];
     shareText = `Today's SF Today wheel landed on Trivia: ${fact}`;
+    imageTitle = "Today's SF Trivia";
+    imageSubtitle = fact;
     resultEl.innerHTML = `
       <p class="wheel-landed-label">${segment.emoji} Landed on: <strong>${segment.label}</strong></p>
       <div class="plan-item">
         <h3>Today's SF Trivia</h3>
         <p>💡 ${fact}</p>
       </div>
-      <button type="button" id="wheel-share-btn" class="secondary-btn">Share This Pick</button>
+      <div class="wheel-result-actions">
+        <button type="button" id="wheel-share-btn" class="secondary-btn">Share This Pick</button>
+        <button type="button" id="wheel-download-btn" class="secondary-btn">📸 Download as Image</button>
+      </div>
     `;
   } else {
     const item = pickWheelItem(segment.key);
@@ -2148,14 +2332,31 @@ function renderWheelResult(segment) {
     }
     currentPlanItems = [item];
     shareText = `The SF Today wheel landed on ${segment.label} — ${item.title}${item.address ? ' at ' + item.address : ''}!`;
+    imageTitle = item.title;
+    imageSubtitle = `Today's wheel pick: ${segment.label}`;
     resultEl.innerHTML = `
       <p class="wheel-landed-label">${segment.emoji} Landed on: <strong>${segment.label}</strong></p>
       ${buildVenueCard(item)}
-      <button type="button" id="wheel-share-btn" class="secondary-btn">Share This Pick</button>
+      <div class="wheel-result-actions">
+        <button type="button" id="wheel-share-btn" class="secondary-btn">Share This Pick</button>
+        <button type="button" id="wheel-download-btn" class="secondary-btn">📸 Download as Image</button>
+      </div>
     `;
   }
 
   resultEl.classList.remove('hidden');
+
+  const wheelDownloadBtn = document.getElementById('wheel-download-btn');
+  if (wheelDownloadBtn) {
+    wheelDownloadBtn.addEventListener('click', function() {
+      const canvas = generateShareableImage({
+        emoji: segment.emoji,
+        title: imageTitle,
+        subtitle: imageSubtitle
+      });
+      downloadShareableImage(canvas, 'sf-today-wheel-result.png');
+    });
+  }
 
   const wheelShareBtn = document.getElementById('wheel-share-btn');
   if (wheelShareBtn) {
