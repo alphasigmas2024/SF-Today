@@ -433,6 +433,53 @@ footer p + p {
   text-decoration: underline;
 }
 
+/* --- ITINERARY CONNECTOR (real walking directions between stops) --- */
+.itinerary-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 10px 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px dashed var(--border);
+}
+
+.itinerary-connector a {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.itinerary-connector a:hover {
+  text-decoration: underline;
+}
+
+/* --- VENUE CARD FOOTER ROW (visited toggle, verified date, report issue) --- */
+.venue-footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.venue-verified {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.report-issue-link {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+}
+
+.report-issue-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 /* --- LOCAL PICK / TOURIST FAVORITE TAG BADGES --- */
 .tag-badge {
   display: inline-block;
@@ -1339,6 +1386,8 @@ footer p + p {
   .wheel-spin-btn,
   #wheel-status,
   .wheel-legend,
+  .report-issue-link,
+  #guides-reorder-note,
   .quick-nav,
   .skip-link {
     display: none !important;
@@ -1506,6 +1555,19 @@ footer p + p {
   border-left-color: var(--accent);
 }
 
+.wheel-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.75rem;
+}
+
+.wheel-result-actions .secondary-btn {
+  margin: 0;
+  flex: 1;
+  min-width: 140px;
+}
+
 /* --- VISITED / "BEEN THERE" TOGGLE ON VENUE CARDS --- */
 .visited-toggle {
   width: auto;
@@ -1519,7 +1581,7 @@ footer p + p {
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
-  margin-top: 8px;
+  margin-top: 0;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -1731,6 +1793,20 @@ body.dark-mode .quick-nav::after {
 .quick-nav-scroll a.active {
   background: rgba(255,255,255,0.18);
   color: white;
+}
+
+/* The One Direction link is a different page, not a same-site section —
+   set apart with a divider and a dimmer default state so it doesn't read
+   as core site navigation at a glance */
+.quick-nav-external {
+  margin-left: 6px;
+  padding-left: 16px !important;
+  border-left: 1px solid rgba(255,255,255,0.25);
+  opacity: 0.65;
+}
+
+.quick-nav-external:hover {
+  opacity: 1;
 }
 
 body.dark-mode .quick-nav {
