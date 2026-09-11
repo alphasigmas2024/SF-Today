@@ -127,6 +127,17 @@
     }
 
     const feedbackForm = document.getElementById('feedback-form');
+
+    // Pre-fill the message if arriving from a venue card's "Report an issue" link
+    (function prefillFromVenue() {
+      const params = new URLSearchParams(window.location.search);
+      const venue = params.get('venue');
+      if (!venue) return;
+      const messageField = document.getElementById('fb-message');
+      messageField.value = `There's an issue with this listing: ${venue}\n\nWhat's wrong: `;
+      messageField.focus();
+      messageField.setSelectionRange(messageField.value.length, messageField.value.length);
+    })();
     const feedbackStatus = document.getElementById('feedback-status');
     // Matches the contact address published in the site footer and About page.
     // Update in both places if it ever changes.
