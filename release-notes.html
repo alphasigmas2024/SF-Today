@@ -44,78 +44,114 @@
     <p>A running log of every update, feature, and tweak made to SF Today.</p>
   </header>
   <main>
-    <p class="tool-subtitle" style="margin: -0.5rem 0 1.5rem 0;">Dates below are placeholders spread across a month for readability — swap in your real dates whenever you're ready.</p>
     <section class="tool-box">
+
       <div class="log-entry">
-        <h3>📅 Day 30</h3>
-        <div class="log-category">Launch Ready</div>
+        <h3>📅 November 16, 2026</h3>
+        <div class="log-category">Added</div>
         <ul>
-          <li>Real favicons, full app icon set, and a proper 1200×630 social share image — replacing the old placeholder favicon everywhere.</li>
-          <li>Security headers and one-click deploy configs added for Netlify and Vercel.</li>
-          <li>A full site-wide QA pass: every link checked, every page's HTML validated, every script tested for errors.</li>
-          <li>Simplified the codebase down to a single JavaScript file for easier maintenance.</li>
-          <li>Fixed a real bug: the daily game, wheel, and trivia previously reset on UTC time or the visitor's own timezone instead of San Francisco's actual midnight — now anchored to SF time consistently, site-wide.</li>
-          <li>Removed the SF Slang Glossary — redundant with the FAQ and slightly out of place for the site's tone.</li>
-          <li>Consolidated the homepage's "About" blurb into the dedicated About page.</li>
+          <li>Real walking-directions links between stops on any generated plan — powered by Google Maps' own routing, not a guessed time.</li>
+          <li>The homepage's guide cards now quietly reorder around today's actual weather (outdoor guides first on clear days, indoor first on bad ones), with a small note explaining why.</li>
+          <li>A "⚠️ Report an issue" link on every venue card, pre-filling the feedback form with that venue's name.</li>
+          <li>"📸 Download as Image" on the neighborhood quiz result and the daily wheel spin — a real, branded, downloadable PNG generated in-browser.</li>
+          <li>A "✓ Checked [date]" line on every venue card, tied to the About page's honesty section about how a one-person site stays current.</li>
+          <li>Small print-stylesheet touch-up so the new report-issue links and reorder note never show up in a printed plan.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 33</h3>
+        <h3>📅 November 13, 2026</h3>
+        <div class="log-category">Added</div>
+        <ul>
+          <li>Big expansion to the One Direction page's achievements: the "5 for 5" UK Albums Chart record, full award totals (Brit, MTV VMA, MTV EMA), and the real 2024 streaming resurgence following Liam Payne's death — verified via search rather than reusing an old, unlabeled figure.</li>
+          <li>An FAQ section on the One Direction page.</li>
+          <li>The One Direction timeline is now linked from the homepage quick-nav, set visually apart with a divider since it's a different page, not a site section.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 November 9, 2026</h3>
+        <div class="log-category">Added</div>
+        <ul>
+          <li>A standalone One Direction timeline page — unrelated to the SF guide by design, linked quietly from the footer.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 November 5, 2026</h3>
         <div class="log-category">Fixed</div>
         <ul>
-          <li>The quick-nav bar was getting visibly clipped mid-word on smaller screens ("Game" cutting off to "Gan") with no indication it could scroll — added fade edges so it reads as scrollable, not broken.</li>
-          <li>The checklist button's map icon and count ran together with no spacing ("🗺️2/100").</li>
+          <li>Street Sweeping Lookup was pointed at DataSF's old domain (data.sfgov.org), which they migrated to data.sf.gov this month — updated to the new official domain before the old one stopped working.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 November 1, 2026</h3>
+        <div class="log-category">Fixed</div>
+        <ul>
+          <li>Redesigned every favicon and app icon. The original bridge illustration had fine cable lines and cross-bracing that turned into illegible noise at real tab-icon size (16–32px) — genuinely looked broken, not just plain. Replaced with a bold "SF" monogram for small sizes and a monogram plus a simplified single-arch bridge accent for larger icons where there's room for it.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 October 28, 2026</h3>
+        <div class="log-category">Fixed</div>
+        <ul>
+          <li>The quick-nav was silently broken: a duplicate CSS rule overwrote its sticky positioning, and an auto-scroll effect was calling <code>scrollIntoView()</code> in a way that fought the page's own vertical scroll. Both fixed — sticky positioning no longer gets overridden, and the active-link auto-scroll is now scoped strictly to the nav's own horizontal strip.</li>
+          <li>The quick-nav was also getting clipped mid-word on smaller screens with no indication it could scroll — added fade edges. The checklist button's icon and count ran together with no spacing — fixed.</li>
         </ul>
         <div class="log-category" style="margin-top: 1.25rem;">Removed</div>
         <ul>
           <li>SF Essentials — decided it wasn't earning its place.</li>
-          <li>"Today at a Glance" — it duplicated the header's weather and the full Sunset & Fog section below it. Removed the redundant middle layer; both the quick version (header) and full version (dedicated section) remain.</li>
+          <li>"Today at a Glance" — it duplicated the header's weather and the full Sunset & Fog section below it. Removed the redundant middle layer.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 32</h3>
+        <h3>📅 October 24, 2026</h3>
         <div class="log-category">Fixed</div>
         <ul>
           <li>The Spin the SF Wheel had two segments (History and Trivia) sharing the exact same 📜 icon — genuinely confusing on an 8-slice wheel. Gave History its own icon.</li>
         </ul>
         <div class="log-category" style="margin-top: 1.25rem;">Added</div>
         <ul>
-          <li>A visible legend under the wheel explaining what each of the 8 categories actually means, instead of relying on icons alone.</li>
-          <li>A gentle idle wobble on the wheel to invite a first spin — stops automatically once you've actually spun it.</li>
+          <li>A visible legend under the wheel explaining what each of the 8 categories means, instead of relying on icons alone.</li>
+          <li>A gentle idle wobble inviting a first spin — stops automatically once you've actually spun it.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 31</h3>
+        <h3>📅 October 20, 2026</h3>
         <div class="log-category">Added</div>
         <ul>
           <li>A sticky "jump to" quick-nav bar for getting around the homepage's many sections faster.</li>
-          <li>"Today at a Glance" — a compact weather, sunset, and fog summary right under the header.</li>
           <li>Real loading skeletons in place of plain "Loading..." text for weather, Muni alerts, and sunset data.</li>
           <li>A "skip to content" link and other small accessibility touches.</li>
-          <li>Expanded the planner's budget filter from 3 tiers to 5 (Free, Under $25, $25–$75, $75–$150, $150+) for finer control.</li>
-          <li>Grew the site from 74 to 100 real, addressed places — Baker Beach, the Botanical Garden, the Japanese Tea Garden, Angel Island, the SF Zoo, and dozens more, spread across guides and neighborhoods.</li>
+          <li>Expanded the planner's budget filter from 3 tiers to 5 (Free, Under $25, $25–$75, $75–$150, $150+).</li>
+          <li>Grew the site from 74 to 100 real, addressed places — Baker Beach, the Botanical Garden, the Japanese Tea Garden, Angel Island, the SF Zoo, and dozens more.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 30 (later)</h3>
+        <h3>📅 October 16, 2026</h3>
         <div class="log-category">Changed</div>
         <ul>
-          <li>Removed the "I'm on a Date" planner option and the Dating Ideas guide — replaced with an "📜 SF History" guide covering Angel Island, the Fillmore's displacement of its Black community, and the wartime incarceration of Japantown's Japanese American residents. All three facts were verified against multiple sources before publishing.</li>
+          <li>Removed the "I'm on a Date" planner option and the Dating Ideas guide — replaced with a "📜 SF History" guide covering Angel Island, the Fillmore's displacement of its Black community, and the wartime incarceration of Japantown's Japanese American residents. Every fact verified against multiple sources before publishing.</li>
           <li>"Guess the SF Spot" expanded from 5 puzzles to 19 — almost three weeks of variety before it repeats.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 29 (later)</h3>
+        <h3>📅 October 12, 2026</h3>
         <div class="log-category">Added</div>
         <ul>
-          <li>The Spin the SF Wheel now shows a live, ticking countdown to your next spin, anchored to San Francisco's real midnight — and unlocks automatically the moment it hits, no page refresh needed.</li>
-          <li>Three real, verified SF dining institutions added to the guide (Tadich Grill, House of Prime Rib, Tosca Cafe), each checked for a currently-operating address before publishing.</li>
-          <li>A "How Accuracy Actually Works Here" section on the About page — an honest account of how a one-person site stays current, instead of pretending otherwise.</li>
+          <li>The Spin the SF Wheel now shows a live, ticking countdown to the next spin, anchored to San Francisco's real midnight — and unlocks automatically the moment it hits, no refresh needed.</li>
+          <li>Three real, verified SF dining institutions added (Tadich Grill, House of Prime Rib, Tosca Cafe), each checked for a currently-operating address before publishing.</li>
+          <li>A "How Accuracy Actually Works Here" section on the About page — an honest account of how a one-person site stays current.</li>
+        </ul>
+        <div class="log-category" style="margin-top: 1.25rem;">Fixed</div>
+        <ul>
+          <li>The daily game, wheel, and trivia previously reset on UTC time or the visitor's own timezone instead of San Francisco's actual midnight — now anchored to real SF time, site-wide.</li>
         </ul>
         <div class="log-category" style="margin-top: 1.25rem;">Changed</div>
         <ul>
@@ -125,7 +161,7 @@
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 29</h3>
+        <h3>📅 October 8, 2026</h3>
         <div class="log-category">Fixed</div>
         <ul>
           <li>Reviewed the FAQ's cost-of-living claim against current data — softened it to avoid overstating a single, contested ranking.</li>
@@ -133,38 +169,38 @@
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 28</h3>
+        <h3>📅 October 4, 2026</h3>
         <div class="log-category">Added</div>
         <ul>
-          <li>🎡 "Spin the SF Wheel" — one spin a day, lands on a category (Eat, Free Thing, Outdoor, Date Idea, Hidden Gem, Neighborhood, Sight, or Trivia) and reveals a real, shareable pick.</li>
+          <li>🎡 "Spin the SF Wheel" — one spin a day, lands on a category (Eat, Free Thing, Outdoor, Hidden Gem, Neighborhood, Sight, History, or Trivia) and reveals a real, shareable pick.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 25</h3>
+        <h3>📅 September 30, 2026</h3>
         <div class="log-category">Added — Personalization</div>
         <ul>
           <li>"Which SF Neighborhood Are You?" — a 5-question quiz with a shareable result.</li>
           <li>"Find My Nearest Neighborhood," using optional, privacy-respecting browser geolocation — nothing is ever sent to a server.</li>
-          <li>A toast notification when the weather clears up while you have the tab open.</li>
-          <li>Basic offline support — the site's core pages now load even without a connection, once you've visited before.</li>
-          <li>A time-of-day greeting in the header (morning / afternoon / evening).</li>
+          <li>A toast notification when the weather clears up while the tab is open.</li>
+          <li>Basic offline support — core pages now load even without a connection, once you've visited before.</li>
+          <li>A time-of-day greeting in the header.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 22</h3>
+        <h3>📅 September 26, 2026</h3>
         <div class="log-category">Added — Discovery Tools</div>
         <ul>
-          <li>Site-wide Quick Find — press <code>/</code> or tap 🔍 to search every spot, neighborhood, slang term, and FAQ on the site.</li>
-          <li>"My SF Checklist" — mark any spot as visited anywhere on the site, and track progress toward exploring the whole guide, with milestone celebrations at 25/50/75/100%.</li>
-          <li>SF Essentials — a quick-reference card for non-emergency numbers, transit payment, tipping norms, and parking.</li>
+          <li>Site-wide Quick Find — press <code>/</code> or tap 🔍 to search every spot, neighborhood, and FAQ on the site.</li>
+          <li>"My SF Checklist" — mark any spot as visited anywhere on the site, with milestone celebrations at 25/50/75/100%.</li>
+          <li>SF Essentials — a quick-reference card for non-emergency numbers, transit payment, and parking.</li>
           <li>"What to Bring Today" — a packing list generated live from the weather and season.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 20</h3>
+        <h3>📅 September 22, 2026</h3>
         <div class="log-category">Added — Live City Data</div>
         <ul>
           <li>Live sunset & golden hour countdown, pulled from a public sunset API.</li>
@@ -174,51 +210,59 @@
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 18</h3>
+        <h3>📅 September 18, 2026</h3>
         <div class="log-category">Added — Plan & Share</div>
         <ul>
           <li>Share and Print buttons on every generated plan.</li>
-          <li>"🎲 Surprise Me" button for instant random picks when you can't decide.</li>
-          <li>The planner now nudges toward outdoor or indoor picks based on the live weather.</li>
+          <li>"🎲 Surprise Me" button for instant random picks.</li>
+          <li>The planner now nudges toward outdoor or indoor picks based on live weather.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 16</h3>
+        <h3>📅 September 14, 2026</h3>
         <div class="log-category">Added — Smarter Planning</div>
         <ul>
           <li>More planner filters: Indoor/Outdoor, a dog-friendly toggle, and an "I'm a Local" persona.</li>
-          <li>A much bigger activity database behind the planner to match against.</li>
+          <li>A much bigger activity database behind the planner.</li>
           <li>SF Today is now installable as a home-screen app on phones.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 14</h3>
+        <h3>📅 September 10, 2026</h3>
         <div class="log-category">Added — Gamification Begins</div>
         <ul>
-          <li>Launched "Guess the SF Spot," a daily mystery-location game with a streak counter, rotating through five puzzles by day.</li>
+          <li>Launched "Guess the SF Spot," a daily mystery-location game with a streak counter.</li>
           <li>Confetti celebrations on real completed actions — winning the game, signing up, sending feedback, donating.</li>
-          <li>Native share-sheet support on mobile for sharing results.</li>
+          <li>Native share-sheet support on mobile.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 11</h3>
+        <h3>📅 September 7, 2026</h3>
+        <div class="log-category">Launch Readiness</div>
+        <ul>
+          <li>Real favicons, a full app icon set, and a proper 1200×630 social share image.</li>
+          <li>Security headers and one-click deploy configs for Netlify and Vercel.</li>
+          <li>A README with a plain-English pre-launch checklist, and sitemap/robots.txt for search engines.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <h3>📅 September 3, 2026</h3>
         <div class="log-category">Fixed — Honesty Pass</div>
         <ul>
-          <li>Email signup no longer falsely confirms success when no mailing list is connected — it now says so plainly and offers an email fallback.</li>
-          <li>Donate button no longer dead-ends on an unconfigured payment link — it now offers an email fallback to arrange a donation directly.</li>
+          <li>Email signup no longer falsely confirms success when no mailing list is connected — it says so plainly and offers an email fallback.</li>
+          <li>Donate button no longer dead-ends on an unconfigured payment link — offers an email fallback instead.</li>
           <li>Muni Alerts shows an honest "coming soon" message instead of setup instructions meant for the site owner.</li>
-          <li>Corrected a typo in the "Is San Francisco expensive?" FAQ answer (and its structured data).</li>
-          <li>Unified the version number and footer text across every page.</li>
-          <li>This page was rebuilt to share the same design system, dark mode, and navigation as the rest of the site.</li>
-          <li>Added a proper 404 page.</li>
+          <li>Corrected a typo in the FAQ (and its structured data). Unified the version number and footer text across every page.</li>
+          <li>This page was rebuilt to share the same design system, dark mode, and navigation as the rest of the site. Added a proper 404 page.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 8</h3>
+        <h3>📅 August 30, 2026</h3>
         <div class="log-category">Added — Community Features</div>
         <ul>
           <li>Feedback page, with an optional star rating.</li>
@@ -228,17 +272,17 @@
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 5</h3>
+        <h3>📅 August 26, 2026</h3>
         <div class="log-category">Added — Personality & Trust</div>
         <ul>
-          <li>SF Slang Glossary and a Frequently Asked Questions section.</li>
+          <li>An SF Slang Glossary and a Frequently Asked Questions section.</li>
           <li>About, Privacy Policy, and Terms of Service pages.</li>
           <li>Dark mode, site-wide.</li>
         </ul>
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 3</h3>
+        <h3>📅 August 22, 2026</h3>
         <div class="log-category">Added — Local Data Integration</div>
         <ul>
           <li>Real-time street sweeping lookup, pulled from San Francisco's official public data.</li>
@@ -248,7 +292,7 @@
       </div>
 
       <div class="log-entry">
-        <h3>📅 Day 1</h3>
+        <h3>📅 August 18, 2026</h3>
         <div class="log-category">Initial Launch</div>
         <ul>
           <li>Launched the SF Today homepage with a custom "Build My Plan" filter (who you are, budget, time available).</li>
@@ -257,6 +301,7 @@
           <li>Live SF clock and live weather in the header.</li>
         </ul>
       </div>
+
     </section>
   </main>
   <footer>
