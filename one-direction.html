@@ -184,6 +184,37 @@
       color: var(--muted);
       font-size: 0.82rem;
     }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+    .faq-item {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .faq-item summary {
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--ink);
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before {
+      content: '▸ ';
+      color: var(--accent);
+    }
+    .faq-item[open] summary::before {
+      content: '▾ ';
+    }
+    .faq-item p {
+      margin: 0.6rem 0 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
   </style>
@@ -202,14 +233,23 @@
 
     <div class="impact-box">
       <h2>🌍 How They Defined an Era</h2>
-      <p>One Direction weren't just a successful boy band — they were arguably the first act whose fame was built as much on social media as on radio. Twitter, Tumblr, and YouTube turned five strangers from a UK talent show into a stadium-filling global act within about 18 months, years before "internet fame" was a normal career path for a music act.</p>
-      <p>They also broke a chart record no one had matched before: with the release of <em>Four</em> in 2014, they became the first band in Billboard 200 history to have their first four studio albums all debut at #1 — a run most acts never manage even once.</p>
+      <p>One Direction weren't just a successful boy band — they were arguably the first act whose fame was built as much on social media as on radio. Twitter, Tumblr, and YouTube turned five strangers from a UK talent show into a stadium-filling global act within about 18 months, years before "internet fame" was a normal career path for a music act. That direct-to-fan playbook — constant behind-the-scenes access, fan-run translation and edit accounts, a genuinely two-way relationship with an audience — became the template a lot of pop acts (K-pop groups especially) would later scale up even further.</p>
+      <p>They also broke chart records that still stand out today. <em>Take Me Home</em> (2012) made them the first group ever to have their first two albums debut at #1 on the Billboard 200. <em>Midnight Memories</em> (2013) extended that to three straight #1 debuts — only the second act in history to do it, after The Monkees in 1967. <em>Four</em> (2014) pushed it to four for four, a Billboard 200 first no act had ever managed. And in the UK, they went one better: all five of their studio albums, from <em>Up All Night</em> (2011) through <em>Made in the A.M.</em> (2015), debuted at #1 on the UK Albums Chart — five for five, a clean sweep few acts in any genre have matched.</p>
       <div class="impact-stats">
-        <div class="impact-stat"><strong>70M+</strong><span>records sold worldwide (as of 2020)</span></div>
-        <div class="impact-stat"><strong>4 for 4</strong><span>consecutive #1 US album debuts</span></div>
+        <div class="impact-stat"><strong>5 for 5</strong><span>UK #1 album debuts — every studio album, no exceptions</span></div>
+        <div class="impact-stat"><strong>4 for 4</strong><span>consecutive #1 US Billboard 200 debuts — a chart first</span></div>
+        <div class="impact-stat"><strong>~177</strong><span>total awards won, across dozens of ceremonies worldwide</span></div>
+        <div class="impact-stat"><strong>70M+</strong><span>records sold worldwide (widely cited career total)</span></div>
+        <div class="impact-stat"><strong>6</strong><span>Guinness World Records, including three separate US chart firsts</span></div>
         <div class="impact-stat"><strong>$290.2M</strong><span>grossed by the 2014 Where We Are Tour</span></div>
-        <div class="impact-stat"><strong>19 / 19</strong><span>Teen Choice Award wins from nominations</span></div>
+        <div class="impact-stat"><strong>7</strong><span>Brit Awards</span></div>
+        <div class="impact-stat"><strong>7</strong><span>American Music Awards, including Artist of the Year in 2014 and 2015</span></div>
+        <div class="impact-stat"><strong>6</strong><span>Billboard Music Awards — the most-ever wins in the Top Duo/Group category</span></div>
+        <div class="impact-stat"><strong>11</strong><span>MTV Europe Music Awards</span></div>
+        <div class="impact-stat"><strong>4</strong><span>MTV Video Music Awards</span></div>
+        <div class="impact-stat"><strong>28 / 31</strong><span>Teen Choice Award wins from nominations</span></div>
       </div>
+      <p style="margin-top: 1.1rem;">In 2013, <em>Forbes</em> estimated the band earned $75 million that year, making them the second-highest-earning celebrity under 30 in the world. And one more record, for a very different reason: in October 2024, following Liam Payne's death, the band's global streams jumped 442% in four days, US streams rose 675%, and all five albums simultaneously re-entered both the Billboard 200 and the UK Albums Chart nearly a decade after their last release — one of the largest catalog resurgences streaming has ever recorded for any artist.</p>
     </div>
 
     <h2 class="section-title">The Timeline</h2>
@@ -234,8 +274,8 @@
         <div class="hits-row">
           <span class="hit-chip album-chip">Album: Up All Night</span>
           <span class="hit-chip">What Makes You Beautiful</span>
+          <span class="hit-chip">Gotta Be You</span>
           <span class="hit-chip">One Thing</span>
-          <span class="hit-chip">Another World</span>
         </div>
       </div>
 
@@ -247,7 +287,7 @@
           <span class="hit-chip album-chip">Album: Take Me Home</span>
           <span class="hit-chip">Live While We're Young</span>
           <span class="hit-chip">Kiss You</span>
-          <span class="hit-chip">Magic</span>
+          <span class="hit-chip">Little Things</span>
         </div>
       </div>
 
@@ -259,7 +299,7 @@
           <span class="hit-chip album-chip">Album: Midnight Memories</span>
           <span class="hit-chip">Best Song Ever</span>
           <span class="hit-chip">Story of My Life</span>
-          <span class="hit-chip">Through The Dark</span>
+          <span class="hit-chip">One Way or Another</span>
         </div>
       </div>
 
@@ -271,7 +311,7 @@
           <span class="hit-chip album-chip">Album: Four</span>
           <span class="hit-chip">Steal My Girl</span>
           <span class="hit-chip">Night Changes</span>
-          <span class="hit-chip">No Control (Fun Fact, this was a song that wasn't a single which led to a fan creating a campagin called "Project No Control" demanding this to be played on all radio stations as it was not reciving it's public recognition and exposure it was getting.</span>
+          <span class="hit-chip">18</span>
         </div>
       </div>
 
@@ -302,21 +342,49 @@
       <div class="event">
         <div class="event-date">2016 – 2023</div>
         <h3>Five Solo Careers</h3>
-        <p>All five members — released solo music during this period, each finding their own chart success independently of the band.</p>
+        <p>All five members — including Zayn — released solo music during this period, each finding their own chart success independently of the band.</p>
       </div>
 
       <div class="event somber">
         <div class="event-date">October 16, 2024</div>
         <h3>Liam Payne's Death</h3>
-        <p>Liam Payne died at age 31 after a fall from a hotel balcony (under the influence of drugs) in Buenos Aires, Argentina, while traveling in South America. His death was met with an outpouring of grief from fans, his bandmates, and the music industry worldwide.</p>
+        <p>Liam Payne died at age 31 after a fall from a hotel balcony in Buenos Aires, Argentina, while traveling in South America. His death was met with an outpouring of grief from fans, his bandmates, and the music industry worldwide.</p>
       </div>
 
       <div class="event">
         <div class="event-date">Legacy</div>
         <h3>One of the Best-Selling Boy Bands in History</h3>
-        <p>Five strangers put together on a UK talent show in 2010 went on to sell more than 70 million records worldwide, set a chart record that still stands, and helped prove that a fanbase built on social media could rival — or exceed — one built on radio alone.</p>
+        <p>Five strangers put together on a UK talent show in 2010 went on to sell more than 70 million records worldwide, set chart records on both sides of the Atlantic, and helped prove that a fanbase built on social media could rival — or exceed — one built on radio alone.</p>
       </div>
 
+    </div>
+
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Are they getting back together?</summary>
+        <p>Nothing official. The hiatus announced in 2015 was always described as "indefinite" rather than a breakup, and members have occasionally said publicly they'd be open to it someday — but as of this page's last update, there's no confirmed reunion.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why did Zayn Malik leave?</summary>
+        <p>He cited stress from the pressures of fame and a wish to live more privately when he announced his departure in March 2015, after five years in the band.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Did they ever win a Grammy?</summary>
+        <p>No — despite the record sales, sold-out stadium tours, and chart history, One Direction never received a Grammy nomination as a group. It's one of the more frequently pointed-out gaps between their commercial success and industry recognition.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What was their best-selling album?</summary>
+        <p><em>Midnight Memories</em> (2013) was the best-selling album in the world that year, according to the IFPI.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are the members still making music?</summary>
+        <p>Yes — all five pursued solo careers during the hiatus, including Zayn Malik. Liam Payne released solo music up until his death in October 2024.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many Guinness World Records do they hold?</summary>
+        <p>Six, awarded in 2015 alone — covering their unmatched run of US #1 album debuts, being the first UK group to debut a first album at #1 in the US, and the highest US singles chart debut by a UK group ("Live While We're Young," entering at #3).</p>
+      </details>
     </div>
   </main>
 
